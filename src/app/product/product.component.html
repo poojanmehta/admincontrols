@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Product Add</h1>
+  <form [formGroup]="productform" (ngsubmit)="onAdd()">
+    <mat-form-field>
+      <input matInput formControlName="p_name" placeholder="Product Name">
+      <!-- <mat-label *ngIf="productform.get('p_name').hasError('required')">Product name required</mat-label> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" formControlName="p_price" placeholder="Price">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="textarea" formControlName="p_dis" placeholder="Discription">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" formControlName="p_qty" placeholder="Quantity">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" formControlName="p_stock" placeholder="Available Stock">
+    </mat-form-field>
+<button type="submit" mat-button color="primary" *ngIf="productform.valid">Add</button>
+
+  </form>
+</div>

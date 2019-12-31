@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>signup Form</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+    <mat-form-field>
+      <input matInput formControlName="c_email" placeholder="Email">
+      <mat-label *ngIf="signupForm.get('c_email').hasError('required') && !signupForm.get('c_email').pristine ">
+       Email should not be empty</mat-label>
+      <mat-label *ngIf="signupForm.get('c_email').hasError('c_email') && !signupForm.get('c_email').pristine ">Invalid Email
+      </mat-label>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput formControlName="c_name" placeholder="Enter Name">
+      <mat-label *ngIf="signupForm.get('c_name').hasError('required') && !signupForm.get('c_name').pristine ">
+       Name should not be empty s</mat-label>
+      <mat-label *ngIf="signupForm.get('c_name').hasError('c_email') && !signupForm.get('c_name').pristine ">Invalid Email
+      </mat-label>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput formControlName="c_con" placeholder="Contact no">
+      <mat-label *ngIf="signupForm.get('c_con').hasError('required') && !signupForm.get('c_con').pristine ">password
+        should not be empty</mat-label>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input type="password" matInput formControlName="c_pass" placeholder="ENTER PASSWORD">
+      <mat-label *ngIf="signupForm.get('c_pass').hasError('required') && !signupForm.get('c_pass').pristine ">password
+        should not be empty</mat-label>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="c_dob">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker  #picker></mat-datepicker >
+      <mat-label *ngIf="signupForm.get('c_dob').hasError('required') && !signupForm.get('c_dob').pristine ">date of birth
+        should not be empty</mat-label>
+    </mat-form-field>
+    <br>
+
+
+
+    <button type="submit" mat-button color="primary">sign up</button>
+  </form>
+</div>
