@@ -16,8 +16,8 @@ export class ClientloginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      c_email: new FormControl(null, [Validators.required]),
-      c_pass: new FormControl(null, [Validators.required])
+      c_email: new FormControl('poojanmehta2000@gmail.com', [Validators.required]),
+      c_pass: new FormControl('12345678', [Validators.required])
     });
   }
   onLogin() {

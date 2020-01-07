@@ -10,5 +10,16 @@ table{
   margin-left:1300px;
 }
 .mat-button{
-  width:100%
+  width:100%;
+  font-size: larger;
+  font-style: bold;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
 }

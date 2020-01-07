@@ -14,4 +14,8 @@ export class LogindataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(this.url, body, { headers: x });
   }
+  getAllUser()
+  {
+    return this._http.get(this.url);
+  }
 }

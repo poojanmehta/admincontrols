@@ -21,6 +21,7 @@ productform: FormGroup
     })
   }
   onAdd(){
+    console.log("inAdd");
     this._productdata.addProduct(this.productform.value).subscribe(
       (data:any[]) => {
         console.log(data);

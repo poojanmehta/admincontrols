@@ -10,7 +10,7 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput formControlName="c_name" placeholder="Enter Name">
+      <input matInput formControlName="c_name" placeholder="Name">
       <mat-label *ngIf="signupForm.get('c_name').hasError('required') && !signupForm.get('c_name').pristine ">
        Name should not be empty s</mat-label>
       <mat-label *ngIf="signupForm.get('c_name').hasError('c_email') && !signupForm.get('c_name').pristine ">Invalid Email
@@ -18,13 +18,13 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput formControlName="c_con" placeholder="Contact no">
-      <mat-label *ngIf="signupForm.get('c_con').hasError('required') && !signupForm.get('c_con').pristine ">password
+      <input matInput formControlName="c_con" placeholder="Contact Number">
+      <mat-label *ngIf="signupForm.get('c_con').hasError('required') && !signupForm.get('c_con').pristine ">contact numnber
         should not be empty</mat-label>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input type="password" matInput formControlName="c_pass" placeholder="ENTER PASSWORD">
+      <input type="password" matInput formControlName="c_pass" placeholder="Password">
       <mat-label *ngIf="signupForm.get('c_pass').hasError('required') && !signupForm.get('c_pass').pristine ">password
         should not be empty</mat-label>
     </mat-form-field>
@@ -41,6 +41,6 @@
 
 
 
-    <button type="submit" mat-button color="primary">sign up</button>
+    <button class="button" type="submit" mat-button color="primary">sign up</button>
   </form>
 </div>
