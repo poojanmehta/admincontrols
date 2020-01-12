@@ -7,6 +7,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthguardService } from './authguard.service';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 const arr: Routes = [
 
@@ -16,7 +17,8 @@ const arr: Routes = [
       { path: 'product', component: ProductdisplayComponent },
       { path: 'signup', component: ClientsignupComponent },
       { path: 'userinfo', component: UserInfoComponent },
-      { path: 'productadd', component: ProductComponent }
+      { path: 'productadd', component: ProductComponent },
+      { path:'trainer',component:TrainerComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }
