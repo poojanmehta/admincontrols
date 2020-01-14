@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
-import { ProductdataService } from 'src/app/productdata.service';
+import { ProductdataService } from '../productdata.service';
 import { product } from '../product';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 

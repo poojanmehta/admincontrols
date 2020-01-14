@@ -24,3 +24,11 @@ table {
 .example-button-row a {
   margin-right: 8px;
 }
+
+.delete{
+  color: red;
+}
+
+.update{
+  color: blue;
+}

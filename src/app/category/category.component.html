@@ -1,0 +1,15 @@
+<mat-form-field>
+  <mat-label>Select Category</mat-label>
+  <select matNativeControl required [(ngModel)]="ct_id">
+    <option *ngFor="let item of cat" [value]="item.ct_id">
+      {{item.ct_name}}
+    </option>
+  </select>
+</mat-form-field>
+
+<mat-form-field>
+<input matInput type="text" placeholder="Enter Subcategory" [(ngModel)]="sct_name" required>
+</mat-form-field>
+
+<button class="button" mat-button  color="primary" (click)="onAdd()">Add New Category</button>
+

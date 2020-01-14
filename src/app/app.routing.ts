@@ -7,6 +7,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthguardService } from './authguard.service';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
+import { ProductupdateComponent } from './product/productupdate/productupdate.component';
+import { CategoryComponent } from './category/category.component';
 
 const arr: Routes = [
 
@@ -16,7 +18,9 @@ const arr: Routes = [
       { path: 'product', component: ProductdisplayComponent },
       { path: 'signup', component: ClientsignupComponent },
       { path: 'userinfo', component: UserInfoComponent },
-      { path: 'productadd', component: ProductComponent }
+      { path: 'productadd', component: ProductComponent },
+      { path: 'productupdate/:p_id', component: ProductupdateComponent },
+      { path: 'category', component: CategoryComponent }
     ]
   },
   { path: '**', component: PagenotfoundComponent }

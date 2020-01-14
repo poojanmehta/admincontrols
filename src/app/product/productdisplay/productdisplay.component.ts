@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
-import { ProductdataService } from 'src/app/productdata.service';
+import { ProductdataService } from 'src/app/product/productdata.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
 
@@ -58,5 +58,15 @@ export class ProductdisplayComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog is closed');
     });
+  }
+  onUpdate(row){
+    this._router.navigate(['/nav/productupdate', row.p_id]);
+  }
+  onDelete(row){
+    this._data.deleteProduct(row.p_id).subscribe(
+      (data: any[]) => {
+        this.ngOnInit();
+      }
+    )
   }
 }

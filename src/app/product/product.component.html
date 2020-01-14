@@ -9,8 +9,17 @@
       <input matInput type="number" formControlName="p_price" placeholder="Price">
       <mat-error></mat-error>
     </mat-form-field>
+
     <mat-form-field>
-      <input matInput type="textarea" rows="3" formControlName="p_dis" placeholder="Discription">
+      <mat-label>Select Category</mat-label>
+      <mat-select formControlName="fk_sct_id">
+        <mat-option *ngFor="let item of cat" [value]="item.ct_id">
+          {{item.ct_name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="p_dis" placeholder="Discription">
     </mat-form-field>
     <mat-form-field>
       <input matInput type="number" formControlName="p_qty" placeholder="Quantity">
@@ -18,6 +27,8 @@
     <mat-form-field>
       <input matInput type="number" formControlName="p_stock" placeholder="Available Stock">
     </mat-form-field>
-    <button class="button" type="submit" mat-button  color="primary">Add</button>
+    <!-- *ngFor="let inputArray as inputArray" -->
+      <input type="file" formControlName="p_img" (change)="onChange($event)">
+    <button class="button" type="submit" mat-button  color="primary">ADD</button>
   </form>
 </div>

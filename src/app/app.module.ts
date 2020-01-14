@@ -30,6 +30,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
 import { ProductmoreinfoComponent } from './product/productmoreinfo/productmoreinfo.component';
+import { ProductupdateComponent } from './product/productupdate/productupdate.component';
+import { CategoryComponent } from './category/category.component';
 
 
 
@@ -44,7 +46,9 @@ import { ProductmoreinfoComponent } from './product/productmoreinfo/productmorei
     PagenotfoundComponent,
     UserInfoComponent,
     ProductdisplayComponent,
-    ProductmoreinfoComponent
+    ProductmoreinfoComponent,
+    ProductupdateComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

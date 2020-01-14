@@ -5,6 +5,8 @@ export class product{
     public p_price:number,
     public p_dis:string,
     public p_qty:number,
-    public p_stock:number
+    public p_stock:number,
+    public p_img:string,
+    public fk_sct_id:string,
   ){}
 }
