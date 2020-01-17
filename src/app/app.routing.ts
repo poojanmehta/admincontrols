@@ -9,6 +9,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 const arr: Routes = [
 
@@ -21,6 +22,7 @@ const arr: Routes = [
       { path: 'productadd', component: ProductComponent },
       { path: 'productupdate/:p_id', component: ProductupdateComponent },
       { path: 'category', component: CategoryComponent }
+      { path:'trainer',component:TrainerComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }

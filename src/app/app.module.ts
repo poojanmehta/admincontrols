@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ClientloginComponent } from './clientlogin/clientlogin.component';
+//import statement
 import {  MatTableModule,
    MatFormFieldModule,
    MatIconModule,
@@ -19,7 +20,8 @@ import {  MatTableModule,
    MatCardModule,
    MatPaginatorModule,
    MatTreeModule,
-   MatNativeDateModule} from '@angular/material';
+   MatNativeDateModule,
+   MatRadioModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -32,6 +34,7 @@ import { ProductdisplayComponent } from './product/productdisplay/productdisplay
 import { ProductmoreinfoComponent } from './product/productmoreinfo/productmoreinfo.component';
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 
 
@@ -48,7 +51,8 @@ import { CategoryComponent } from './category/category.component';
     ProductdisplayComponent,
     ProductmoreinfoComponent,
     ProductupdateComponent,
-    CategoryComponent
+    CategoryComponent,
+    TrainerComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ import { CategoryComponent } from './category/category.component';
     MatTreeModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
+
   ],
   providers: [],
   entryComponents:[
