@@ -19,5 +19,10 @@
     <input matInput placeholder="Discription" formControlName="p_dis">
   </mat-form-field>
   <br>
-  <button class="button" type="submit" mat-button  color="primary">UPDATE</button>
+  <button class="button" type="submit" mat-button  color="primary">Update Product</button>
 </form>
+<br>
+<h2>Update Image</h2>
+<img src="http://localhost:3000/images/product_images/{{data2.p_img}}">
+<input type="file" (change)="changeImage($event)">
+<button class="button" mat-button  color="primary" (click)="updateImage()">Update Image</button>

@@ -26,4 +26,7 @@ export class ProductdataService {
   deleteProduct(p_id){
     return this._http.delete(this.url+p_id)
   }
+  updateImage(p_id,obj:FormData){
+    return this._http.put(this.url+p_id,obj);
+  }
 }
