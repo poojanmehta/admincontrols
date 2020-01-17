@@ -4,12 +4,10 @@
     <mat-form-field>
       <input matInput type="text" formControlName="p_name" placeholder="Product Name">
     </mat-form-field>
-
     <mat-form-field>
       <input matInput type="number" formControlName="p_price" placeholder="Price">
       <mat-error></mat-error>
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>Select Category</mat-label>
       <mat-select formControlName="fk_sct_id">
@@ -27,8 +25,20 @@
     <mat-form-field>
       <input matInput type="number" formControlName="p_stock" placeholder="Available Stock">
     </mat-form-field>
-    <!-- *ngFor="let inputArray as inputArray" -->
-      <input type="file" formControlName="p_img" (change)="onChange($event)">
-    <button class="button" type="submit" mat-button  color="primary">ADD</button>
+    <div formArrayName="p_ben" *ngFor="let item of productform.get('p_ben')['controls']; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field>
+          <input matInput formControlName="new_ben" placeholder="Product Benifit {{i+1}}">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="example-button-row">
+      <button mat-stroked-button type="button" formControlName="new_con" (click)="newControl()"><mat-icon>add</mat-icon>New Benifit</button>
+    </div>
+    <br>
+    <input type="file" formControlName="p_img" (change)="onChange($event)">
+    <br>
+    <button class="button" type="submit" mat-button color="primary">Add New Product</button>
   </form>
+
 </div>

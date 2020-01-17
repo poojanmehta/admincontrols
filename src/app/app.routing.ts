@@ -21,7 +21,7 @@ const arr: Routes = [
       { path: 'userinfo', component: UserInfoComponent },
       { path: 'productadd', component: ProductComponent },
       { path: 'productupdate/:p_id', component: ProductupdateComponent },
-      { path: 'category', component: CategoryComponent }
+      { path: 'category', component: CategoryComponent },
       { path:'trainer',component:TrainerComponent}
     ]
   },

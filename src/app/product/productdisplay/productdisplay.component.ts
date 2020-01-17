@@ -15,9 +15,7 @@ import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.com
 })
 export class ProductdisplayComponent implements OnInit {
 
-  constructor(private _router: Router,
-              private _data: ProductdataService,
-              public _dialog:MatDialog) { }
+  constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog) { }
   diaplayedColumns: string[] = ['name', 'price', 'quantity', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   selection = new SelectionModel<product>(true, []);
@@ -52,21 +50,23 @@ export class ProductdisplayComponent implements OnInit {
   }
   moreInfo(row) {
     console.log(row.p_name);
-    const dialogRef= this._dialog.open(ProductmoreinfoComponent, {
-      data:{pid :row.p_id}
+    const dialogRef = this._dialog.open(ProductmoreinfoComponent, {
+      data: { pid: row.p_id }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog is closed');
     });
   }
-  onUpdate(row){
+  onUpdate(row) {
     this._router.navigate(['/nav/productupdate', row.p_id]);
   }
-  onDelete(row){
-    this._data.deleteProduct(row.p_id).subscribe(
-      (data: any[]) => {
-        this.ngOnInit();
-      }
-    )
+  onDelete(row) {
+    if (confirm('Are you sure you want to delete the product?')) {
+      this._data.deleteProduct(row.p_id).subscribe(
+        (data: any[]) => {
+          this.ngOnInit();
+        }
+      );
+    }
   }
 }
