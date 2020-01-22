@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectionModel } from '@angular/cdk/collections';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
 import { ProductdataService } from 'src/app/product/productdata.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
+
+import { MatPaginator, MatSort } from '@angular/material';
+
+import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.component';
 
 
 @Component({
@@ -16,47 +20,57 @@ import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.com
 export class ProductdisplayComponent implements OnInit {
 
   constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog) { }
-  diaplayedColumns: string[] = ['name', 'price', 'quantity', 'stock', 'action'];
+  diaplayedColumns: string[] = ['check', 'name', 'price', 'quantity', 'stock', 'category' , 'action'];
   dataSource = new MatTableDataSource<product>();
-  selection = new SelectionModel<product>(true, []);
+  checkarr: number[] = [];
+  product_tbl: product[];
+  promo: string;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+
+
+
   ngOnInit() {
     this._data.getAllProduct().subscribe(
       (data: product[]) => {
+        this.product_tbl = data;
         this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     );
   }
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-  /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: product): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+  onCheckBoxChange(row: product) {
+
+    if (this.checkarr.find(x => x == row.p_id)) {
+      this.checkarr.splice(this.checkarr.indexOf(row.p_id), 1);
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.p_name + 1}`;
+    else {
+      this.checkarr.push(row.p_id);
+    }
+
   }
   onAdd() {
     this._router.navigate(['/nav/productadd']);
   }
   moreInfo(row) {
-    console.log(row.p_name);
     const dialogRef = this._dialog.open(ProductmoreinfoComponent, {
       data: { pid: row.p_id }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog is closed');
     });
   }
+
+  applyFilter(filtervalue: string) {
+    this.dataSource.filter = filtervalue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   onUpdate(row) {
     this._router.navigate(['/nav/productupdate', row.p_id]);
   }
@@ -69,4 +83,39 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
+  onDeleteAllClick() {
+    if (confirm('Are you sure to delete multiple products?')) {
+      this._data.deleteAllProduct(this.checkarr).subscribe(
+        (data) => {
+          for (let i = 0; i < this.checkarr.length; i++) {
+            let x = this.product_tbl.find(x => x.p_id == this.checkarr[i]);
+            this.product_tbl.splice(this.product_tbl.indexOf(x), 1);
+          }
+          this.dataSource.data = this.product_tbl;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      );
+    }
+  }
+  onAddPromocode() {
+    const dialogRef = this._dialog.open(AddpromodialogComponent, {
+      data: { promo: this.promo }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.promo = result;
+      if(this.promo != undefined){
+      let obj = {
+        chkarr: this.checkarr,
+        promo: this.promo
+      }
+      this._data.addPromo(obj).subscribe(
+        (data: any) => {
+          alert('Promocode Added Succsessfully');
+        }
+      );
+      }
+    });
+  }
 }
+

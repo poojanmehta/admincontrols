@@ -15,6 +15,7 @@ export class ProductupdateComponent implements OnInit {
   data2: product;
   new_img: File;
   fd = new FormData();
+
   constructor(private _router: Router,
     private _act: ActivatedRoute,
     private _data: ProductdataService) { }
@@ -22,6 +23,7 @@ export class ProductupdateComponent implements OnInit {
   ngOnInit() {
     this.p_id = this._act.snapshot.params['p_id'];
     this.updateform = new FormGroup({
+      p_id: new FormControl(),
       p_name: new FormControl(null, [Validators.required]),
       p_price: new FormControl(null, [Validators.required]),
       p_qty: new FormControl(null, [Validators.required]),
@@ -37,6 +39,7 @@ export class ProductupdateComponent implements OnInit {
   }
   formDataBind() {
     this.updateform.patchValue({
+      p_id: this.data2.p_id,
       p_name: this.data2.p_name,
       p_price: this.data2.p_price,
       p_qty: this.data2.p_qty,
@@ -56,6 +59,7 @@ export class ProductupdateComponent implements OnInit {
     this.fd.append('image',this.new_img,this.new_img.name);
   }
   updateImage(){
+    console.log(this.new_img);
     this._data.updateImage(this.data2.p_id,this.fd).subscribe(
       (data:any) => {
         console.log('image updated');

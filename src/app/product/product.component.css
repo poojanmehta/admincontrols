@@ -1,6 +1,5 @@
 table{
   width:100%;
-
 }
 .mat-form-field{
   font-size:14px;
@@ -9,10 +8,12 @@ table{
 .columnstyle{
   margin-left:1300px;
 }
-.mat-button{
+.mat-raised-button{
   width:100%;
   font-size: larger;
   font-style: bold;
+  margin-top: 2%;
+  color:blue;
 }
 
 .example-container {
@@ -26,4 +27,10 @@ table{
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
+}
+
+.customselect{
+  float: right;
+  margin-left: 1%;
+
 }

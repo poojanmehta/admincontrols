@@ -1,9 +1,12 @@
-<img height="100" width="100" src="http://localhost:3000/images/product_images/{{data.p_img}}">
-<h3>Name: {{data.p_id}}</h3>
-<h5>Price: {{data.p_price}}</h5>
-<h5>Quantity: {{data.p_qty}}</h5>
-<h5>Stock: {{data.p_stock}}</h5>
-<h5>Discription: {{data.p_dis}}</h5>
+<img height="200" width="300" src="http://localhost:3000/images/product_images/{{data.p_img}}">
+<div class="info">
+<h5>Name : {{data.p_name}}</h5>
+<h5>Price : {{data.p_price}} </h5>
+<h5>Quantity : {{data.p_qty}}{{data.p_unit}}</h5>
+<h5>Stock : {{data.p_stock}}</h5>
+<h5>Bemifits : </h5>
 <h5 *ngFor="let item of benifit" >
   {{item}}
 </h5>
+<h5>How to use : {{data.p_usage}}</h5>
+</div>

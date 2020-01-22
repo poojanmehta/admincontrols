@@ -35,6 +35,7 @@ import { ProductmoreinfoComponent } from './product/productmoreinfo/productmorei
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
+import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
 
 
 
@@ -52,7 +53,8 @@ import { TrainerComponent } from './trainer/trainer.component';
     ProductmoreinfoComponent,
     ProductupdateComponent,
     CategoryComponent,
-    TrainerComponent
+    TrainerComponent,
+    AddpromodialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { TrainerComponent } from './trainer/trainer.component';
   ],
   providers: [],
   entryComponents:[
-    ProductmoreinfoComponent
+    ProductmoreinfoComponent,
+    AddpromodialogComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -20,6 +20,11 @@ export class ProductComponent implements OnInit {
   p_ben: FormArray;
   benifits:string;
   i:number=0;
+  p_qty:String;
+  unit: string[] = ['kilogram',
+'gram',
+'litre',
+'mililiter'];
   productform: FormGroup
   ngOnInit() {
     this.productform = this._fb.group({
@@ -28,10 +33,12 @@ export class ProductComponent implements OnInit {
       p_dis: new FormControl(null, [Validators.required]),
       fk_sct_id: new FormControl(null, [Validators.required]),
       p_qty: new FormControl(null, [Validators.required]),
+      p_unit: new FormControl(null,[Validators.required]),
       p_stock: new FormControl(null, [Validators.required]),
       p_ben: this._fb.array([this.newBenifit()]),
+      p_usage: new FormControl(null),
       p_img: new FormControl(null),
-      new_con: new FormControl()
+      new_con: new FormControl(null)
     });
     this._catdata.getSubcategory().subscribe(
       (data: category[]) => {
@@ -42,18 +49,24 @@ export class ProductComponent implements OnInit {
   }
   onAdd() {
     for(let n=0;n<=this.i;n++){
+      if(n==0){
+        this.benifits = this.productform.value.p_ben[n].new_ben;
+      }
+      else{
       this.benifits = this.benifits + '/' + this.productform.value.p_ben[n].new_ben;
       console.log(this.benifits);
+      }
     }
-    var split = this.benifits.split('/',4);
-    console.log(split);
+    this.p_qty = this.productform.value.p_qty + '/' + this.productform.value.p_unit;
     let fd = new FormData();
     fd.append('p_name', this.productform.value.p_name);
     fd.append('p_price', this.productform.value.p_price);
     fd.append('p_dis', this.productform.value.p_dis);
     fd.append('p_qty', this.productform.value.p_qty);
+    fd.append('p_unit',this.productform.value.p_unit);
     fd.append('p_stock', this.productform.value.p_stock);
     fd.append('p_ben',this.benifits);
+    fd.append('p_usage',this.productform.value.p_usage);
     if (this.selectedFile != null) {
       fd.append('image', this.selectedFile, this.selectedFile.name);
     }
@@ -61,8 +74,6 @@ export class ProductComponent implements OnInit {
       fd.append('image', new Blob(), null);
     }
     fd.append('fk_sct_id', this.productform.value.fk_sct_id);
-    console.log(this.productform.value.p_ben[1].new_ben);
-    // fd.append('p_ben',this.productform.value.p_ben[i])
     this._productdata.addProduct(fd).subscribe(
       (data: any[]) => {
         console.log(data);

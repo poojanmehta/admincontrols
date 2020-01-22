@@ -1,0 +1,11 @@
+
+<div mat-dialog-content>
+  <p>Enter Promocode</p>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="info.promo">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="info.promo" cdkFocusInitial>Ok</button>
+</div>

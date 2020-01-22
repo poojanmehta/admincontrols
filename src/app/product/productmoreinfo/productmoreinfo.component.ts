@@ -19,9 +19,7 @@ export class ProductmoreinfoComponent implements OnInit {
     this._data.getProductById(this.info.pid).subscribe(
       (data2: product[]) => {
         this.data = data2[0];
-        this.benifit = this.data.p_ben.split('/',6);
-        console.log(this.benifit[5]);
-        console.log(this.benifit);
+        this.benifit = this.data.p_ben.split('/', 6);
       }
     );
   }
