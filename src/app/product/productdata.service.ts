@@ -40,4 +40,9 @@ export class ProductdataService {
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url2, body, { headers: head });
   }
+  deletePromo(obj) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.post(this.url2+1, body, { headers: head });
+  }
 }

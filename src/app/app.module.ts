@@ -21,7 +21,8 @@ import {  MatTableModule,
    MatPaginatorModule,
    MatTreeModule,
    MatNativeDateModule,
-   MatRadioModule} from '@angular/material';
+   MatRadioModule,
+   MatTooltipModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -81,7 +82,8 @@ import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog
     BrowserAnimationsModule,
     LayoutModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTooltipModule
 
   ],
   providers: [],

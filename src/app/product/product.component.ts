@@ -42,10 +42,9 @@ export class ProductComponent implements OnInit {
     });
     this._catdata.getSubcategory().subscribe(
       (data: category[]) => {
-        console.log(data);
         this.cat = data;
       }
-    )
+    );
   }
   onAdd() {
     for(let n=0;n<=this.i;n++){
@@ -90,8 +89,13 @@ export class ProductComponent implements OnInit {
     });
   }
   newControl() {
+    if(this.i<5){
     this.p_ben = this.productform.get('p_ben') as FormArray;
     this.p_ben.push(this.newBenifit());
     this.i++;
+    }
+    else{
+      alert('Only 6 fields ar allowed!');
+    }
   }
 }

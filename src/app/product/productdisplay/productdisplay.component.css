@@ -2,7 +2,7 @@
   margin: 2% 2% 2% 2%;
   position: relative;
   font-size: 18px;
-  color: blue;
+  color: darkblue;
 }
 
 .b {
@@ -10,7 +10,7 @@
 }
 
 .myicon {
-  font-size: 25px;
+  font-size: 26px;
   margin-top: 4px;
   margin-right: 6px;
   float:left;
@@ -26,9 +26,9 @@ width: 100%;
 }
 
 .delete{
-  color: red;
+  color: darkred;
 }
 
 .update{
-  color: blue;
+  color: darkblue;
 }

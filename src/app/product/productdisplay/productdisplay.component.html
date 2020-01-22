@@ -1,9 +1,20 @@
 <div class="mat-elevation-z8">
-  <mat-form-field class="search">
+  <mat-form-field style="width: 65%;">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
   </mat-form-field>
-  <table mat-table [dataSource]="dataSource">
+  <mat-checkbox  matTooltip="Show products only with Promocode" (change)="onPromoBox()" style="float: right;margin: 1.6% 4% 0% 3%;">
+    Promocode
+  </mat-checkbox>
+  <mat-form-field style="float: right;margin-right: 1%;">
+    <mat-select (selectionChange)="onCategoryChange()" [(value)]="selectedcat">
+      <mat-option [value]=-1 selected>All</mat-option>
+      <mat-option *ngFor="let item of cat" [value]="item.ct_id">
+        {{item.ct_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="check">
       <th mat-header-cell *matHeaderCellDef> </th>
       <td mat-cell *matCellDef="let element">
@@ -49,11 +60,17 @@
         <button mat-icon-button (click)=onUpdate(element)>
           <mat-icon class="update">open_in_new</mat-icon>
         </button>
-        <button mat-icon-button (click)=onDelete(element)>
-          <mat-icon class="delete">delete</mat-icon>
+        <button mat-icon-button (click)=nDelete(element)>
+          <mat-icon class="delete">delete_outlined</mat-icon>
         </button>
       </td>
     </ng-container>
+
+    <ng-container matColumnDef="promo">
+      <th mat-header-cell *matHeaderCellDef> Promocode </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_code}} </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
     </tr>
@@ -62,14 +79,18 @@
 </div>
 
 <button mat-raised-button class="button" (click)="onAdd()">
-  <mat-icon class="myicon">add</mat-icon>Create New Product
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Product
 </button>
 
 <button mat-raised-button class="button" (click)="onAddPromocode()" [disabled]="this.checkarr.length<=0"
-  style="color: green;">
-  <mat-icon class="myicon">add</mat-icon>Add Promocode
+  style="color: darkgreen;">
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Add Promocode
+</button>
+<button mat-raised-button class="button" (click)="onDeletePromocode()" [disabled]="this.checkarr.length<=0"
+  style="color: darkred;">
+  <mat-icon class="myicon">remove_circle_outlined</mat-icon>Remove Promocode
 </button>
 <button mat-raised-button class="button" (click)="onDeleteAllClick()" [disabled]="this.checkarr.length<=0"
-  style="color: red;">
-  <mat-icon class="myicon">delete</mat-icon>Delete All
+  style="color:darkred;">
+  <mat-icon class="myicon">delete_outlined</mat-icon>Delete All
 </button>

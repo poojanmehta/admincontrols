@@ -1,15 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
 import { ProductdataService } from 'src/app/product/productdata.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
-
 import { MatPaginator, MatSort } from '@angular/material';
-
 import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.component';
+import { CategorydataService } from 'src/app/category/categorydata.service';
+import { category } from 'src/app/category/category';
 
 
 @Component({
@@ -19,12 +18,17 @@ import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.compon
 })
 export class ProductdisplayComponent implements OnInit {
 
-  constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog) { }
-  diaplayedColumns: string[] = ['check', 'name', 'price', 'quantity', 'stock', 'category' , 'action'];
+  constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog,
+    private _catdata: CategorydataService) { }
+  diaplayedColumns: string[] = ['check', 'name', 'price', 'quantity', 'stock', 'category', 'action'];
   dataSource = new MatTableDataSource<product>();
   checkarr: number[] = [];
   product_tbl: product[];
+  temparr: product[];
   promo: string;
+  cat: category[] = [];
+  selectedcat: number = -1;
+  flag: boolean = false;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -41,6 +45,11 @@ export class ProductdisplayComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     );
+    this._catdata.getSubcategory().subscribe(
+      (data: category[]) => {
+        this.cat = data;
+      }
+    );
   }
   onCheckBoxChange(row: product) {
 
@@ -50,8 +59,47 @@ export class ProductdisplayComponent implements OnInit {
     else {
       this.checkarr.push(row.p_id);
     }
-
+    console.log(this.checkarr);
   }
+
+  onCategoryChange() {
+    this.checkarr = [];
+    if (this.selectedcat == -1) {
+      this.dataSource.data = this.product_tbl;
+    }
+    else {
+      this.temparr = [];
+      for (let i = 0; i < this.product_tbl.length; i++) {
+        if (this.selectedcat == this.product_tbl[i].fk_sct_id) {
+          this.temparr.push(this.product_tbl[i]);
+        }
+      }
+      this.dataSource.data = this.temparr;
+    }
+  }
+
+
+  onPromoBox() {
+    this.checkarr = [];
+    if (this.flag == false) {
+      this.temparr = [];
+      for (let i = 0; i < this.product_tbl.length; i++) {
+        if (this.product_tbl[i].p_code != null) {
+          this.temparr.push(this.product_tbl[i]);
+        }
+      }
+      this.diaplayedColumns.push('promo');
+      this.dataSource.data = this.temparr;
+      this.selectedcat = -1;
+      this.flag = true;
+    }
+    else {
+      this.diaplayedColumns.pop();
+      this.dataSource.data = this.product_tbl;
+      this.flag = false;
+    }
+  }
+
   onAdd() {
     this._router.navigate(['/nav/productadd']);
   }
@@ -78,7 +126,10 @@ export class ProductdisplayComponent implements OnInit {
     if (confirm('Are you sure you want to delete the product?')) {
       this._data.deleteProduct(row.p_id).subscribe(
         (data: any[]) => {
-          this.ngOnInit();
+          this.product_tbl.splice(this.product_tbl.indexOf(row.p_id), 1);
+          this.dataSource.data = this.product_tbl;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       );
     }
@@ -98,22 +149,34 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
+  onDeletePromocode(){
+    if(confirm('Are you sure you want to delete Promocodes?')){
+      this._data.deletePromo(this.checkarr).subscribe(
+        (data: any) => {
+          this.ngOnInit();
+          alert('Promocodes deleted sucsessfully');
+        }
+      );
+    }
+  }
   onAddPromocode() {
     const dialogRef = this._dialog.open(AddpromodialogComponent, {
       data: { promo: this.promo }
     });
     dialogRef.afterClosed().subscribe(result => {
       this.promo = result;
-      if(this.promo != undefined){
-      let obj = {
-        chkarr: this.checkarr,
-        promo: this.promo
-      }
-      this._data.addPromo(obj).subscribe(
-        (data: any) => {
-          alert('Promocode Added Succsessfully');
+      if (this.promo != undefined) {
+        let obj = {
+          chkarr: this.checkarr,
+          promo: this.promo
         }
-      );
+        this._data.addPromo(obj).subscribe(
+          (data: any) => {
+            this.ngOnInit();
+            alert('Promocode Added Succsessfully');
+          }
+
+        );
       }
     });
   }
