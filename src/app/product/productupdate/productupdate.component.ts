@@ -22,6 +22,7 @@ export class ProductupdateComponent implements OnInit {
   ngOnInit() {
     this.p_id = this._act.snapshot.params['p_id'];
     this.updateform = new FormGroup({
+      p_id: new FormControl(),
       p_name: new FormControl(null, [Validators.required]),
       p_price: new FormControl(null, [Validators.required]),
       p_qty: new FormControl(null, [Validators.required]),
@@ -37,6 +38,7 @@ export class ProductupdateComponent implements OnInit {
   }
   formDataBind() {
     this.updateform.patchValue({
+      p_id:this.data2.p_id,
       p_name: this.data2.p_name,
       p_price: this.data2.p_price,
       p_qty: this.data2.p_qty,

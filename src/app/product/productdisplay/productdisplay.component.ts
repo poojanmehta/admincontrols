@@ -3,10 +3,9 @@ import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
-import { ProductdataService } from 'src/app/product/productdata.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
-
+import { ProductdataService } from '../productdata.service';
 
 @Component({
   selector: 'app-productdisplay',
@@ -15,7 +14,7 @@ import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.com
 })
 export class ProductdisplayComponent implements OnInit {
 
-  constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog) { }
+  constructor(private _router: Router, private _data:ProductdataService, public _dialog: MatDialog) { }
   diaplayedColumns: string[] = ['name', 'price', 'quantity', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   selection = new SelectionModel<product>(true, []);

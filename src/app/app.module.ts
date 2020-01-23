@@ -35,6 +35,8 @@ import { ProductmoreinfoComponent } from './product/productmoreinfo/productmorei
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
+import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 
 
 
@@ -52,7 +54,9 @@ import { TrainerComponent } from './trainer/trainer.component';
     ProductmoreinfoComponent,
     ProductupdateComponent,
     CategoryComponent,
-    TrainerComponent
+    TrainerComponent,
+    TrainerdisplayComponent,
+    TrainerupdateComponent
   ],
   imports: [
     BrowserModule,
