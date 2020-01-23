@@ -10,6 +10,8 @@ import { ProductdisplayComponent } from './product/productdisplay/productdisplay
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
+import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 
 const arr: Routes = [
 
@@ -22,7 +24,9 @@ const arr: Routes = [
       { path: 'productadd', component: ProductComponent },
       { path: 'productupdate/:p_id', component: ProductupdateComponent },
       { path: 'category', component: CategoryComponent },
-      { path:'trainer',component:TrainerComponent}
+      { path:'trainer',component:TrainerComponent},
+      {path:'trainerdisplay',component:TrainerdisplayComponent},
+      {path:'trainerupdate/:t_id',component:TrainerupdateComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }

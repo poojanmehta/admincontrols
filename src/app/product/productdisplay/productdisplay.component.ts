@@ -2,13 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
-import { ProductdataService } from 'src/app/product/productdata.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
 import { MatPaginator, MatSort } from '@angular/material';
 import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.component';
 import { CategorydataService } from 'src/app/category/categorydata.service';
 import { category } from 'src/app/category/category';
+import { ProductdataService } from '../productdata.service';
 
 
 @Component({

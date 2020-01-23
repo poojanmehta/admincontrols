@@ -36,6 +36,8 @@ import { ProductmoreinfoComponent } from './product/productmoreinfo/productmorei
 import { ProductupdateComponent } from './product/productupdate/productupdate.component';
 import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
+import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
 
 
@@ -55,6 +57,8 @@ import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog
     ProductupdateComponent,
     CategoryComponent,
     TrainerComponent,
+    TrainerdisplayComponent,
+    TrainerupdateComponent,
     AddpromodialogComponent
   ],
   imports: [
