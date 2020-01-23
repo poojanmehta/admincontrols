@@ -21,7 +21,8 @@ import {  MatTableModule,
    MatPaginatorModule,
    MatTreeModule,
    MatNativeDateModule,
-   MatRadioModule} from '@angular/material';
+   MatRadioModule,
+   MatTooltipModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -37,6 +38,7 @@ import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
 import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
+import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
 
 
 
@@ -56,7 +58,8 @@ import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.co
     CategoryComponent,
     TrainerComponent,
     TrainerdisplayComponent,
-    TrainerupdateComponent
+    TrainerupdateComponent,
+    AddpromodialogComponent
   ],
   imports: [
     BrowserModule,
@@ -83,12 +86,14 @@ import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.co
     BrowserAnimationsModule,
     LayoutModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTooltipModule
 
   ],
   providers: [],
   entryComponents:[
-    ProductmoreinfoComponent
+    ProductmoreinfoComponent,
+    AddpromodialogComponent
   ],
   bootstrap: [AppComponent]
 })

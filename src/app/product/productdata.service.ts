@@ -6,27 +6,43 @@ import { environment } from "../../environments/environment";
   providedIn: 'root'
 })
 export class ProductdataService {
-  constructor(private _http:HttpClient) { }
-  private url:string= environment.url+"product/";
-  addProduct(obj:FormData){
-    return this._http.post(this.url,obj);
+  constructor(private _http: HttpClient) { }
+  private url: string = environment.url + "product/";
+  private url2: string = environment.url + "multiple/";
+  addProduct(obj: FormData) {
+    return this._http.post(this.url, obj);
   }
-  getAllProduct(){
+  getAllProduct() {
     return this._http.get(this.url);
   }
-  getProductById(p_id){
-    return this._http.get(this.url+p_id);
+  getProductById(p_id) {
+    return this._http.get(this.url + p_id);
   }
-  updateProduct(obj){
-    const body=JSON.stringify(obj);
+  updateProduct(obj) {
+    const body = JSON.stringify(obj);
     console.log(body);
-    const head=new HttpHeaders().set(environment.header,environment.value);
-    return this._http.put(this.url,body,{headers:head});
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url, body, { headers: head });
   }
-  deleteProduct(p_id){
-    return this._http.delete(this.url+p_id)
+  updateImage(p_id, obj: FormData) {
+    return this._http.put(this.url + p_id, obj);
   }
-  updateImage(p_id,obj:FormData){
-    return this._http.put(this.url+p_id,obj);
+  deleteProduct(p_id) {
+    return this._http.delete(this.url + p_id);
+  }
+  deleteAllProduct(item: number[]) {
+    const body = JSON.stringify(item);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.post(this.url2, body, { headers: head });
+  }
+  addPromo(obj) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url2, body, { headers: head });
+  }
+  deletePromo(obj) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.post(this.url2+1, body, { headers: head });
   }
 }

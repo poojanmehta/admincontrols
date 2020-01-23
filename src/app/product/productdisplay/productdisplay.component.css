@@ -2,7 +2,7 @@
   margin: 2% 2% 2% 2%;
   position: relative;
   font-size: 18px;
-  color: blue;
+  color: darkblue;
 }
 
 .b {
@@ -10,14 +10,14 @@
 }
 
 .myicon {
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-top: 4px;
   margin-right: 6px;
+  float:left;
 }
 
 table {
-  width: 96%;
-  margin: 2% 2% 2% 2%;
+width: 100%;
 }
 
 .example-button-row button,
@@ -26,9 +26,9 @@ table {
 }
 
 .delete{
-  color: red;
+  color: darkred;
 }
 
 .update{
-  color: blue;
+  color: darkblue;
 }
