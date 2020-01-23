@@ -9,7 +9,7 @@ export class CategorydataService {
 
   constructor(private _http:HttpClient) { }
   private url:string = environment.url+"category/";
-  private url2:string = environment.url+"subcategory";
+  private url2:string = environment.url+"subcategory/";
   addCatgory(obj,ct_id){
     const body=JSON.stringify({sct_name: obj});
     console.log(body);

@@ -24,6 +24,8 @@
 <br>
 <h2>Update Image</h2>
 
-<img src="http://localhost:3000/images/product_images/{{data2.p_img}}">
+<img src="http://localhost:3000/images/product_images/{{data2.p_img}}" height="100" width="100">
+<br>
 <input type="file" (change)="changeImage($event)">
+<br>
 <button class="button" mat-button  color="primary" (click)="updateImage()">Update Image</button>

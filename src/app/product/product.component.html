@@ -11,8 +11,8 @@
     <mat-form-field>
       <mat-label>Select Category</mat-label>
       <mat-select formControlName="fk_sct_id">
-        <mat-option *ngFor="let item of cat" [value]="item.ct_id">
-          {{item.ct_name}}
+        <mat-option *ngFor="let item of cat" [value]="item.sct_id">
+          {{item.sct_name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
