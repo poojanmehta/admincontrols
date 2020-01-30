@@ -8,8 +8,8 @@
   <mat-form-field style="float: right;margin-right: 1%;">
     <mat-select (selectionChange)="onCategoryChange()" [(value)]="selectedcat">
       <mat-option [value]=-1 selected>All</mat-option>
-      <mat-option *ngFor="let item of cat" [value]="item.ct_id">
-        {{item.ct_name}}
+      <mat-option *ngFor="let item of cat" [value]="item.sct_id">
+        {{item.sct_name}}
       </mat-option>
     </mat-select>
   </mat-form-field>

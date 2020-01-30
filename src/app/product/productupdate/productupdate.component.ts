@@ -29,6 +29,7 @@ export class ProductupdateComponent implements OnInit {
       p_qty: new FormControl(null, [Validators.required]),
       p_stock: new FormControl(null, [Validators.required]),
       p_dis: new FormControl(null, [Validators.required])
+
     });
     this._data.getProductById(this.p_id).subscribe(
       (data: product[]) => {
