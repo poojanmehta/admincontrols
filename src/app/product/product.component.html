@@ -3,6 +3,7 @@
   <form [formGroup]="productform" (ngSubmit)="onAdd()">
     <mat-form-field>
       <input matInput type="text" formControlName="p_name" placeholder="Product Name">
+      <mat-error *ngIf="">This field is required</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput type="number" formControlName="p_price" placeholder="Price">
@@ -23,11 +24,11 @@
       <input matInput type="number" formControlName="p_qty" placeholder="Quantity">
     </mat-form-field>
     <mat-form-field class="customselect" style="width:25%">
-      <mat-label >Select Unit</mat-label>
+      <mat-label>Select Unit</mat-label>
       <mat-select formControlName="p_unit">
         <mat-option *ngFor="let item of unit" [value]="item">{{item}}</mat-option>
       </mat-select>
-      </mat-form-field>
+    </mat-form-field>
     <mat-form-field>
       <input matInput type="number" formControlName="p_stock" placeholder="Available Stock">
     </mat-form-field>
@@ -39,7 +40,10 @@
       </div>
     </div>
     <div class="example-button-row">
-      <button mat-stroked-button type="button" (click)="newControl()"><mat-icon>add</mat-icon>New Benifit</button>
+      <button mat-stroked-button type="button" (click)="newControl()">
+        <mat-icon>add</mat-icon>New Benifit
+      </button>
+      <mat-hint>Benifits are not editable.</mat-hint>
     </div>
     <br>
     <mat-form-field>
@@ -48,7 +52,7 @@
     <br>
     <input type="file" formControlName="p_img" (change)="onChange($event)">
     <br>
-    <button class="button" type="submit" mat-raised-button>Add New Product</button>
+    <button class="button" type="submit" mat-raised-button [disabled]="productform.invalid">Add New Product</button>
   </form>
 
 </div>

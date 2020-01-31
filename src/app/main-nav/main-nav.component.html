@@ -1,25 +1,29 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar style="font-size: 35px;margin: 10px 10px 0px 0px;">Menu</mat-toolbar>
+    <mat-toolbar style="font-size: 35px;margin: 10px 10px 0px 0px;">MENU</mat-toolbar>
+
     <mat-nav-list>
       <a mat-list-item routerLink="/" *ngIf="user_login">Log in</a>
-      <a mat-list-item href="/nav/userinfo">
+      <a mat-list-item routerLink="/nav/userinfo">
         <mat-icon>people</mat-icon>
-        Users</a>
-        <a mat-list-item href="nav/trainerdisplay">
-          <mat-icon>people</mat-icon>
-          trainer</a>
+        <p>Users</p>
+      </a>
 
-      <a mat-list-item href="/nav/product">
+      <a mat-list-item routerLink="/nav/trainerdisplay">
+        <mat-icon>people</mat-icon>
+        <p>trainer</p>
+      </a>
+
+      <a mat-list-item routerLink="/nav/product">
         <mat-icon>group_work</mat-icon>
         <p>Product</p>
       </a>
-      <a mat-list-item href="/nav/category">
-        <mat-icon>category</mat-icon >
+      <a mat-list-item routerLink="/nav/category">
+        <mat-icon>category</mat-icon>
         <p>Category</p>
       </a>
-      <a mat-list-item href="nav/signup">
+      <a mat-list-item routerLink="/nav/signup">
         <mat-icon>account_circle</mat-icon>
         <p>SignUp</p>
       </a>
@@ -38,7 +42,6 @@
       <span>Kratos Fitness & academy hello{{user_mail}}</span>
     </mat-toolbar>
 
-    <!-- Add Content Here -->
     <router-outlet></router-outlet>
 
   </mat-sidenav-content>

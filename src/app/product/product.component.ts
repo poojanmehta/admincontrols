@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@ang
 import { ProductdataService } from './productdata.service';
 import { category } from '../category/category';
 import { CategorydataService } from '../category/categorydata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,8 @@ export class ProductComponent implements OnInit {
 
   constructor(private _productdata: ProductdataService,
     private _fb: FormBuilder,
-    private _catdata: CategorydataService) { }
+    private _catdata: CategorydataService,
+    private _router: Router ) { }
 
   selectedFile: File = null;
   cat: category[] = [];
@@ -31,10 +33,10 @@ export class ProductComponent implements OnInit {
       p_name: new FormControl(null, [Validators.required]),
       p_price: new FormControl(null, [Validators.required]),
       p_dis: new FormControl(null, [Validators.required]),
-      fk_sct_id: new FormControl(null, [Validators.required]),
+      fk_sct_id: new FormControl(null),
       p_qty: new FormControl(null, [Validators.required]),
-      p_unit: new FormControl(null, [Validators.required]),
-      p_stock: new FormControl(null, [Validators.required]),
+      p_unit: new FormControl(null),
+      p_stock: new FormControl(null),
       p_ben: this._fb.array([this.newBenifit()]),
       p_usage: new FormControl(null),
       p_img: new FormControl(null),
@@ -77,7 +79,8 @@ export class ProductComponent implements OnInit {
     this._productdata.addProduct(fd).subscribe(
       (data: any[]) => {
         console.log(data);
-        console.log(this.productform.value);
+        alert('New Product Added Successfully');
+        this._router.navigate(['/nav/product']);
       }
     );
   }

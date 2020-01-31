@@ -1,3 +1,33 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.sct_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subcatID">
+      <th mat-header-cell *matHeaderCellDef> Subcategory ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.sct_id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="catID">
+      <th mat-header-cell *matHeaderCellDef> Category ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.fk_ct_id}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="subcatID">
+      <th mat-header-cell *matHeaderCellDef> Subcategory ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.sct_id}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
+
+  </table>
+</div>
+
+<br><br><br>
+
 <mat-form-field>
   <mat-label>Select Category</mat-label>
   <select matNativeControl required [(ngModel)]="ct_id">
@@ -8,8 +38,7 @@
 </mat-form-field>
 
 <mat-form-field>
-<input matInput type="text" placeholder="Enter Subcategory" [(ngModel)]="sct_name" required>
+  <input matInput type="text" placeholder="Enter Subcategory" [(ngModel)]="sct_name" required>
 </mat-form-field>
 
-<button class="button" mat-button  color="primary" (click)="onAdd()">Add New Category</button>
-
+<button class="button" mat-button color="primary" (click)="onAdd()" [disabled]="sct_name==null">Add New Category</button>

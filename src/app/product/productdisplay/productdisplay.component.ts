@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
@@ -14,13 +14,13 @@ import { ProductdataService } from '../productdata.service';
 @Component({
   selector: 'app-productdisplay',
   templateUrl: './productdisplay.component.html',
-  styleUrls: ['./productdisplay.component.css']
+  styleUrls: ['./productdisplay.component.css'],
 })
 export class ProductdisplayComponent implements OnInit {
 
   constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog,
     private _catdata: CategorydataService) { }
-  diaplayedColumns: string[] = ['check', 'name', 'price', 'quantity', 'stock', 'category', 'action'];
+  diaplayedColumns: string[] = ['check', 'name', 'price', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   checkarr: number[] = [];
   product_tbl: product[];
@@ -155,6 +155,7 @@ export class ProductdisplayComponent implements OnInit {
         (data: any) => {
           this.ngOnInit();
           alert('Promocodes deleted sucsessfully');
+          this.checkarr.length = 0;
         }
       );
     }
@@ -174,6 +175,7 @@ export class ProductdisplayComponent implements OnInit {
           (data: any) => {
             this.ngOnInit();
             alert('Promocode Added Succsessfully');
+            this.checkarr.length = 0;
           }
 
         );
