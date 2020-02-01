@@ -24,11 +24,13 @@
     <mat-form-field>
       <input matInput type="text" formControlName="t_qlf" placeholder="qualification">
     </mat-form-field><br>
-    <mat-form-field>
+    <input type="file" formControlName="t_img" (change)="onChange($event)">
+    <br>
+   <mat-form-field>
       <input matInput type="text" formControlName="t_exp" placeholder="experiance">
     </mat-form-field><br>
 
     <button class="button" type="submit" mat-button  color="primary">Add</button>
   </form>
-</div>
+<div>
 

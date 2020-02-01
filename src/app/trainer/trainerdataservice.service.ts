@@ -11,15 +11,19 @@ export class TrainerdataserviceService {
   getAllTrainer(){
   return this._http.get(this.url);
   }
-  addTrainer(obj){
-    const body=JSON.stringify(obj);
-    const head=new HttpHeaders().set(environment.header,environment.value);
-    return this._http.post(this.url,body,{headers:head});
+  addTrainer(obj:FormData){
+    // const body=JSON.stringify(obj);
+    // const head=new HttpHeaders().set(environment.header,environment.value);
+    return this._http.post(this.url,obj);
 
   }
   deleteTrainer(t_id){
     return this._http.delete(this.url+t_id)
   }
+  updateImage(t_id, obj: FormData) {
+    return this._http.put(this.url + t_id, obj);
+  }
+
   getTrainerById(t_id){
     return this._http.get(this.url+t_id);
   }
