@@ -1,11 +1,11 @@
 <div class="mat-elevation-z8">
-  <mat-form-field style="width: 65%;">
+  <mat-form-field class="search" style="width: 69%;margin-left: 1%;">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
   </mat-form-field>
-  <mat-checkbox  matTooltip="Show products only with Promocode" (change)="onPromoBox()" style="float: right;margin: 1.6% 4% 0% 3%;">
-    Promocode
-  </mat-checkbox>
-  <mat-form-field style="float: right;margin-right: 1%;">
+
+
+
+  <mat-form-field  style="margin: 0% 1% 0% 1%;">
     <mat-select (selectionChange)="onCategoryChange()" [(value)]="selectedcat">
       <mat-option [value]=-1 selected>All</mat-option>
       <mat-option *ngFor="let item of cat" [value]="item.sct_id">
@@ -14,6 +14,11 @@
     </mat-select>
   </mat-form-field>
 
+
+  <mat-checkbox matTooltip="Show products only with Promocode" (change)="onPromoBox()">
+    Promocode
+  </mat-checkbox>
+
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="check">
       <th mat-header-cell *matHeaderCellDef> </th>
@@ -21,7 +26,6 @@
         <mat-checkbox (change)="onCheckBoxChange(element)"></mat-checkbox>
       </td>
     </ng-container>
-
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -34,21 +38,9 @@
       <td mat-cell *matCellDef="let element"> {{element.p_price}} </td>
     </ng-container>
 
-
-    <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef> Quantity </th>
-      <td mat-cell *matCellDef="let element"> {{element.p_qty}} </td>
-    </ng-container>
-
-
     <ng-container matColumnDef="stock">
       <th mat-header-cell *matHeaderCellDef> Stock </th>
       <td mat-cell *matCellDef="let element"> {{element.p_stock}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let element"> {{element.fk_sct_id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="action">

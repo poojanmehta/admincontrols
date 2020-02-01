@@ -1,6 +1,6 @@
 <form [formGroup]="updateform" (ngSubmit)="onUpdate()" class="container">
   <mat-form-field>
-    <input matInput placeholder="Name" formControlName="p_name"  >
+    <input matInput placeholder="Product Name" formControlName="p_name"  >
   </mat-form-field>
   <br>
   <mat-form-field>
@@ -8,15 +8,34 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Quantity" formControlName="p_qty">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput placeholder="Stock" formControlName="p_stock">
+    <mat-label>Select Category</mat-label>
+    <mat-select formControlName="fk_sct_id">
+      <mat-option *ngFor="let item of cat" [(value)]="item.sct_id">
+        {{item.sct_name}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
   <br>
   <mat-form-field>
     <input matInput placeholder="Discription" formControlName="p_dis">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 74%;">
+    <input matInput placeholder="Quantity" formControlName="p_qty">
+  </mat-form-field>
+  <mat-form-field class="customselect" style="width:25%">
+    <mat-label>Select Unit</mat-label>
+    <mat-select formControlName="p_unit">
+      <mat-option *ngFor="let item of unit" [value]="item">{{item}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Available Stock" formControlName="p_stock">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea matInput rows="3" formControlName="p_usage" placeholder="How to use this product ?"></textarea>
   </mat-form-field>
   <br>
   <button class="button" type="submit" mat-button  color="primary">Update Product</button>

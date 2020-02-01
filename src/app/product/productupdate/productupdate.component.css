@@ -6,15 +6,19 @@ table{
   font-size:14px;
   width:100%;
 }
-.columnstyle{
-  margin-left:1300px;
+.customselect{
+  float: right;
+  margin-left: 1%;
+
 }
 .mat-button{
   width:100%;
   font-size: larger;
   font-style: bold;
 }
-
+.columnstyle{
+  margin-left:1300px;
+}
 .example-container {
   display: flex;
   flex-direction: column;

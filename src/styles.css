@@ -15,10 +15,57 @@ body {
   margin: 2% 2% 2% 2%;
 }
 
-/* .mat-elevation-z8{
+.mat-elevation-z8{
   width: 96%;
-  margin: 1% 1% 1% 2%;
-  box-shadow: 1px 1px 3px gray;
-  border-color:3px solid gray;
+  margin: 2% 1% 1% 2%;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.mat-paginator{
+  border-radius: 3px;
+}
+
+.mat-raised-button {
+  margin: 2% 2% 2% 2%;
+  position: relative;
+  font-size: 18px;
+  color: darkblue;
+}
+
+.b {
+  font-size: 40px;
+}
+
+.myicon {
+  font-size: 26px;
+  margin-top: 4px;
+  margin-right: 6px;
+  float:left;
+}
+
+table {
+width: 100%;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.delete{
+  color: darkred;
+}
+
+.update{
+  color: darkblue;
+}
+
+/* .search{
+  margin-left: 1%;
+  width:68%
 } */
 
+.mat-tooltip{
+  font-size: smaller;
+}
