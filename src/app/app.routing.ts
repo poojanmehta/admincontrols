@@ -12,6 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
 import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
+import { EmailsenderComponent } from './emailsender/emailsender.component';
 
 const arr: Routes = [
 
@@ -26,7 +27,8 @@ const arr: Routes = [
       { path: 'category', component: CategoryComponent },
       { path:'trainer',component:TrainerComponent},
       {path:'trainerdisplay',component:TrainerdisplayComponent},
-      {path:'trainerupdate/:t_id',component:TrainerupdateComponent}
+      {path:'trainerupdate/:t_id',component:TrainerupdateComponent},
+      {path:'email',component:EmailsenderComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }

@@ -39,6 +39,7 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
 import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
+import { EmailsenderComponent } from './emailsender/emailsender.component';
 
 
 
@@ -59,7 +60,8 @@ import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog
     TrainerComponent,
     TrainerdisplayComponent,
     TrainerupdateComponent,
-    AddpromodialogComponent
+    AddpromodialogComponent,
+    EmailsenderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="emailform" (ngSubmit)="onSend()">
+    <mat-form-field>
+      <input matInput placeholder="Receiver Mail" formControlName="receiver">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Subject" formControlName="subject">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Message" formControlName="message">
+    </mat-form-field>
+    <button mat-raised-button type="submit" class="mainbutton" color="primary">Send</button>
+  </form>
+</div>

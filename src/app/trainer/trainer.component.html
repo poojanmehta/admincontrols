@@ -4,19 +4,15 @@
     <mat-form-field>
       <input matInput type="text" formControlName="t_name" placeholder="trainer Name">
     </mat-form-field><br>
-
     <label id="example-radio-group-label">Select Gender</label>
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  formControlName="t_gen">
-  <mat-radio-button class="example-radio-button" *ngFor="let gen of gender" [value]="gen">
-    {{gen}}
-  </mat-radio-button>
-</mat-radio-group>
-<br>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="t_gen">
+      <mat-radio-button class="example-radio-button" *ngFor="let gen of gender" [value]="gen">
+        {{gen}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <br>
     <mat-form-field>
-      <input matInput type="date" size=10  formControlName="t_dob" placeholder="date of birth">
+      <input matInput type="date" size=10 formControlName="t_dob" placeholder="date of birth">
     </mat-form-field><br>
     <mat-form-field>
       <input matInput type="number" formControlName="t_con" placeholder="contact">
@@ -28,7 +24,6 @@
       <input matInput type="text" formControlName="t_exp" placeholder="experiance">
     </mat-form-field><br>
 
-    <button class="button" type="submit" mat-button  color="primary">Add</button>
+    <button class="mainbutton" color="primary" type="submit" mat-raised-button color="primary">Add New Trainer</button>
   </form>
 </div>
-
