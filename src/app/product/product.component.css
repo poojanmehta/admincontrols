@@ -13,7 +13,7 @@ table{
   font-size: larger;
   font-style: bold;
   margin-top: 2%;
-  color:blue;
+  color: whitesmoke;
 }
 
 .example-container {
@@ -32,5 +32,4 @@ table{
 .customselect{
   float: right;
   margin-left: 1%;
-
 }

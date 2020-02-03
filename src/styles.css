@@ -30,7 +30,7 @@ body {
   margin: 2% 2% 2% 2%;
   position: relative;
   font-size: 18px;
-  color: darkblue;
+  color: whitesmoke;
 }
 
 .b {
@@ -61,11 +61,41 @@ width: 100%;
   color: darkblue;
 }
 
-/* .search{
-  margin-left: 1%;
-  width:68%
-} */
-
 .mat-tooltip{
   font-size: smaller;
+}
+
+.mainbutton{
+  width:100%;
+  font-size: larger;
+  font-style: bold;
+  margin-top: 2%;
+  color:blue;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
 }
