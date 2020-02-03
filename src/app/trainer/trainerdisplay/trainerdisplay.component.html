@@ -39,15 +39,16 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-      <!-- <button mat-icon-button (click)="moreInfo(element)">
+      <button mat-icon-button (click)="moreInfo(element)">
         <mat-icon>info</mat-icon>
-      </button>-->
+      </button>
       <button mat-icon-button (click)=onUpdate(element)>
         <mat-icon class="update">open_in_new</mat-icon>
       </button>
       <button mat-icon-button (click)=onDelete(element)>
-        <mat-icon class="delete">delete</mat-icon>
+        <mat-icon class="delete">delete_outlined</mat-icon>
       </button>
+
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
@@ -55,6 +56,6 @@
   </tr>
 </table>
 <button mat-raised-button class="button" (click)="onAdd()">
-  <mat-icon class="myicon">add</mat-icon>Create New Product
+  <mat-icon class="myicon">add</mat-icon>ADD New Trainer
 </button>
 

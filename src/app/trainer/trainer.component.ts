@@ -19,7 +19,7 @@ export class TrainerComponent implements OnInit {
       t_name:new FormControl(null,[Validators.required]),
       t_gen: new FormControl(null,[Validators.required]),
       t_dob:new FormControl(null,[Validators.required]),
-      t_con:new FormControl(null,[Validators.required]),
+      t_con:new FormControl(null,[Validators.required,]),
       t_qlf:new FormControl(null,[Validators.required]),
       t_img: new FormControl(null),
       t_exp:new FormControl(null,[Validators.required])

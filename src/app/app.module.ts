@@ -39,6 +39,9 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
 import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
+import { trainermoreinfocomponent } from './trainer/trainermoreinfo/trainermoreinfo.component';
+
+
 
 
 
@@ -54,6 +57,7 @@ import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog
     UserInfoComponent,
     ProductdisplayComponent,
     ProductmoreinfoComponent,
+    trainermoreinfocomponent,
     ProductupdateComponent,
     CategoryComponent,
     TrainerComponent,
@@ -93,7 +97,8 @@ import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog
   providers: [],
   entryComponents:[
     ProductmoreinfoComponent,
-    AddpromodialogComponent
+    AddpromodialogComponent,
+    trainermoreinfocomponent
   ],
   bootstrap: [AppComponent]
 })

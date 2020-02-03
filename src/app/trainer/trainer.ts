@@ -6,6 +6,7 @@ export class trainer {
     public t_dob: Date,
     public t_con:number,
     public t_qlf: string,
+    public t_img:String,
     public t_exp: String
   ) { }
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatTableDataSource } from '@angular/material';
-import { product } from 'src/app/product/product';
 import { TrainerdataserviceService } from '../trainerdataservice.service';
-import { SelectionModel } from '@angular/cdk/collections';
+// import { SelectionModel } from '@angular/cdk/collections';
 import { trainer } from '../trainer';
+import { trainermoreinfocomponent } from '../trainermoreinfo/trainermoreinfo.component';
+
 
 @Component({
   selector: 'app-trainerdisplay',
@@ -16,7 +17,7 @@ export class TrainerdisplayComponent implements OnInit {
   constructor(private _router: Router, private _data: TrainerdataserviceService, public _dialog: MatDialog) { }
   diaplayedColumns: string[] = ['name', 'gen', 'dob', 'con', 'qlf','exp','action'];
   dataSource = new MatTableDataSource<trainer>();
-  selection = new SelectionModel<trainer>(true, []);
+  // selection = new SelectionModel<trainer>(true, []);
   ngOnInit() {
     this._data.getAllTrainer().subscribe(
       (data: trainer[]) => {
@@ -27,15 +28,15 @@ export class TrainerdisplayComponent implements OnInit {
   onAdd() {
     this._router.navigate(['/nav/trainer']);
   }
-  // moreInfo(row) {
-  //   console.log(row.t_name);
-  //   const dialogRef = this._dialog.open(ProductmoreinfoComponent, {
-  //     data: { pid: row.p_id }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('dialog is closed');
-  //   });
-  // }
+   moreInfo(row) {
+    console.log(row.t_name);
+    const dialogRef = this._dialog.open(trainermoreinfocomponent, {
+      data: { tid: row.t_id }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog is closed');
+    });
+  }
   onUpdate(row) {
     this._router.navigate(['/nav/trainerupdate', row.t_id]);
   }
