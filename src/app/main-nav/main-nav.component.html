@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    [mode]="(isHandset$ | async) ? 'side' : 'side'">
     <mat-toolbar style="font-size: 35px;margin: 10px 10px 0px 0px;">MENU</mat-toolbar>
 
     <mat-nav-list>
@@ -42,11 +42,10 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon style="color: white;">menu</mat-icon>
       </button>
-      <span>Kratos Fitness & academy hello{{user_mail}}</span>
+      <span>Kratos Fitness & academy hello {{user_mail}}</span>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

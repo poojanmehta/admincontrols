@@ -61,11 +61,6 @@ width: 100%;
   color: darkblue;
 }
 
-/* .search{
-  margin-left: 1%;
-  width:68%
-} */
-
 .mat-tooltip{
   font-size: smaller;
 }
@@ -86,4 +81,21 @@ width: 100%;
 
 .example-radio-button {
   margin: 5px;
+}
+
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
 }

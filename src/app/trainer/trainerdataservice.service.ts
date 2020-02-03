@@ -7,31 +7,31 @@ import { environment } from 'src/environments/environment';
 })
 export class TrainerdataserviceService {
   private url: string = environment.url + 'trainer/';
-  constructor(private _http: HttpClient) {}
-  getAllTrainer(){
-  return this._http.get(this.url);
+  constructor(private _http: HttpClient) { }
+  getAllTrainer() {
+    return this._http.get(this.url);
   }
-  addTrainer(obj:FormData){
+  addTrainer(obj: FormData) {
     // const body=JSON.stringify(obj);
     // const head=new HttpHeaders().set(environment.header,environment.value);
-    return this._http.post(this.url,obj);
+    return this._http.post(this.url, obj);
 
   }
-  deleteTrainer(t_id){
-    return this._http.delete(this.url+t_id)
+  deleteTrainer(t_id) {
+    return this._http.delete(this.url + t_id)
   }
   updateImage(t_id, obj: FormData) {
     return this._http.put(this.url + t_id, obj);
   }
 
-  getTrainerById(t_id){
-    return this._http.get(this.url+t_id);
+  getTrainerById(t_id) {
+    return this._http.get(this.url + t_id);
   }
 
-  updateTrainer(obj){
+  updateTrainer(obj) {
     console.log(obj);
-    const body=JSON.stringify(obj);
-    const head=new HttpHeaders().set(environment.header,environment.value);
-    return this._http.put(this.url,body,{headers:head});
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url, body, { headers: head });
   }
 }

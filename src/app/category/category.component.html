@@ -30,11 +30,11 @@
 <div class="container">
   <mat-form-field>
     <mat-label>Select Category</mat-label>
-    <select matNativeControl required [(ngModel)]="ct_id">
-      <option *ngFor="let item of cat" [value]="item.ct_id">
+    <mat-select required [(ngModel)]="ct_id">
+      <mat-option *ngFor="let item of cat" [value]="item.ct_id">
         {{item.ct_name}}
-      </option>
-    </select>
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field>
