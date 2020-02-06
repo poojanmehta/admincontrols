@@ -12,8 +12,10 @@ export class trainermoreinfocomponent implements OnInit {
   constructor(private _data: TrainerdataserviceService, public dialogRef: MatDialogRef<trainermoreinfocomponent>,
     @Inject(MAT_DIALOG_DATA)
     public info) { }
-  data: trainer;
-  TrainerImgPath: string;
+
+    data: trainer;
+    TrainerImgPath: string;
+    ImagePath: string = environment.url +"images/trainer_images/" ;
 
   ngOnInit() {
     this._data.getTrainerById(this.info.tid).subscribe((data2: trainer[]) => {

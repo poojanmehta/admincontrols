@@ -1,5 +1,9 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <mat-form-field class="search" style="width: 100%;margin-left: 1%;">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+
   <!-- Position Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -55,7 +59,7 @@
   <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
   </tr>
 </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 <button mat-raised-button class="button" (click)="onAdd()">
-  <mat-icon class="myicon">add</mat-icon>ADD New Trainer
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Trainer
 </button>
-

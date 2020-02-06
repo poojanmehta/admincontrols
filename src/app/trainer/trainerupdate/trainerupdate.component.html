@@ -1,6 +1,6 @@
 <form [formGroup]="updateform" (ngSubmit)="onUpdate()" class="container">
   <mat-form-field>
-    <input matInput placeholder="Name" formControlName="t_name"  >
+    <input matInput placeholder="Name" formControlName="t_name">
   </mat-form-field>
   <br>
   <mat-form-field>
@@ -25,11 +25,15 @@
   <br>
 
 
-  <button class="mainbutton" type="submit" mat-raised-button  color="primary">Update Trainer Details</button>
+  <button class="mainbutton" type="submit" mat-raised-button color="primary">Update Trainer Details</button>
 </form>
 <br>
- <h2>Update Image</h2>
-<img src="http://localhost:3000/images/product_images/{{data2.p_img}}">
-<input type="file" (change)="changeImage($event)">
-<button class="button" mat-button  color="primary" (click)="updateImage()">Update Image</button> -->
-
+<div class="container">
+  <h2>Update Trainer Image</h2>
+  <img src="http://localhost:3000/images/trainer_images/{{data2.t_img}}" height="350" width="300"
+    style="position: relative;">
+  <br>
+  <input type="file" (change)="changeImage($event)">
+  <br>
+  <button class="mainbutton" mat-raised-button color="primary" (click)="updateImage()">Update Image</button>
+</div>

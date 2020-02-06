@@ -53,21 +53,21 @@ export class TrainerupdateComponent implements OnInit {
     this._data.updateTrainer(this.updateform.value).subscribe(
       (data: any[]) => {
         console.log(data)
-        this._router.navigate(['/nav/trainer']);
+        this._router.navigate(['/nav/trainerdisplay']);
       }
     );
   }
-  // changeImage(f) {
-  //   this.new_img = <File>f.target.files[0];
-  //   this.fd.append('image',this.new_img,this.new_img.name);
-  // }
-  //  updateImage(){
-  //   this._data.updateImage(this.data2.p_id,this.fd).subscribe(
-  //     (data:any) => {
-  //       console.log('image updated');
-  //     }
-  //  );
-//  }
+   changeImage(f) {
+     this.new_img = <File>f.target.files[0];
+     this.fd.append('image',this.new_img,this.new_img.name);
+   }
+    updateImage(){
+     this._data.updateImage(this.data2.t_id,this.fd).subscribe(
+       (data:any) => {
+         console.log('image updated');
+       }
+    );
+ }
 }
 
 

@@ -29,7 +29,7 @@ export class TrainerdisplayComponent implements OnInit {
     this._router.navigate(['/nav/trainer']);
   }
    moreInfo(row) {
-    console.log(row.t_name);
+    console.log(row.t_id);
     const dialogRef = this._dialog.open(trainermoreinfocomponent, {
       data: { tid: row.t_id }
     });
@@ -40,6 +40,14 @@ export class TrainerdisplayComponent implements OnInit {
   onUpdate(row) {
     this._router.navigate(['/nav/trainerupdate', row.t_id]);
   }
+  applyFilter(filtervalue: string) {
+    this.dataSource.filter = filtervalue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   onDelete(row) {
     if (confirm('Are you sure you want to delete the product?')) {
       this._data.deleteTrainer(row.t_id).subscribe(
