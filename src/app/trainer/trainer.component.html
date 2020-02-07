@@ -26,7 +26,7 @@
       <input matInput type="text" formControlName="t_exp" placeholder="experiance">
   </mat-form-field><br>
 
-    <button class="mainbutton" type="submit" mat-raised-button color="primary">Add New Trainer</button>
+    <button class="mainbutton" type="submit" mat-raised-button color="primary" [disabled]="trainerform.invalid">Add New Trainer</button>
   </form>
 
 

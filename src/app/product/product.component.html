@@ -46,13 +46,14 @@
       <mat-hint>Benifits are not editable.</mat-hint>
     </div>
     <br>
+    <input type="file" formControlName="p_img" (change)="onChange($event)">
+    <br>
     <mat-form-field>
       <textarea matInput rows="3" formControlName="p_usage" placeholder="How to use this product ?"></textarea>
     </mat-form-field>
     <br>
-    <input type="file" formControlName="p_img" (change)="onChange($event)">
-    <br>
-    <button type="submit" mat-raised-button color="primary" [disabled]="productform.invalid">Add New Product</button>
+
+    <button type="submit"class="mainbutton" mat-raised-button color="primary" [disabled]="productform.invalid">Add New Product</button>
   </form>
 
 </div>

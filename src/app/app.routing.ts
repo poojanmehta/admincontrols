@@ -13,6 +13,8 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerdisplayComponent } from './trainer/trainerdisplay/trainerdisplay.component';
 import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.component';
 import { EmailsenderComponent } from './emailsender/emailsender.component';
+import { PromocodeComponent } from './promocode/promocode.component';
+import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.component';
 
 const arr: Routes = [
 
@@ -28,7 +30,9 @@ const arr: Routes = [
       { path:'trainer',component:TrainerComponent},
       {path:'trainerdisplay',component:TrainerdisplayComponent},
       {path:'trainerupdate/:t_id',component:TrainerupdateComponent},
-      {path:'email',component:EmailsenderComponent}
+      {path:'email',component:EmailsenderComponent},
+      {path:'promocode',component:PromocodeComponent},
+      {path:'promodisplay',component:PromodisplayComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }

@@ -41,6 +41,8 @@ import { TrainerupdateComponent } from './trainer/trainerupdate/trainerupdate.co
 import { AddpromodialogComponent } from './product/addpromodialog/addpromodialog.component';
 import { EmailsenderComponent } from './emailsender/emailsender.component';
 import { trainermoreinfocomponent } from './trainer/trainermoreinfo/trainermoreinfo.component';
+import { PromocodeComponent } from './promocode/promocode.component';
+import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.component';
 
 
 
@@ -63,7 +65,9 @@ import { trainermoreinfocomponent } from './trainer/trainermoreinfo/trainermorei
     TrainerdisplayComponent,
     TrainerupdateComponent,
     AddpromodialogComponent,
-    EmailsenderComponent
+    EmailsenderComponent,
+    PromocodeComponent,
+    PromodisplayComponent
   ],
   imports: [
     BrowserModule,

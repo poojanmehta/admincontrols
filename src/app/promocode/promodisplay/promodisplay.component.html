@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8">
+  <mat-form-field class="search" style="width: 97%;margin-left: 1%;">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_name}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="min_pur">
+    <th mat-header-cell *matHeaderCellDef> Minimum Purchase </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_min_pur}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="max_disc">
+    <th mat-header-cell *matHeaderCellDef> Maximum Discount </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_max_disc}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="disc_rate">
+    <th mat-header-cell *matHeaderCellDef> Disc Rate % </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_disc_rate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="disc_flat">
+    <th mat-header-cell *matHeaderCellDef> Flat Disc </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_disc_flat}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="exp_date">
+    <th mat-header-cell *matHeaderCellDef> Expiery Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.pro_exp_date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
+  </table>
+  </div>
+<button mat-raised-button class="button" (click)="onAdd()">
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Promocode
+</button>

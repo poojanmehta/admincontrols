@@ -8,13 +8,7 @@ table{
 .columnstyle{
   margin-left:1300px;
 }
-.mat-raised-button{
-  width:100%;
-  font-size: larger;
-  font-style: bold;
-  margin-top: 2%;
-  color: whitesmoke;
-}
+
 
 .example-container {
   display: flex;
