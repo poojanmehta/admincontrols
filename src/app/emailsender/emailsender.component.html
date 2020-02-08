@@ -1,11 +1,11 @@
 <div class="container">
   <form [formGroup]="emailform" (ngSubmit)="onSend()">
     <mat-form-field>
-      <input matInput placeholder="Receiver Mail" formControlName="receiver">
+      <input matInput placeholder="To"  formControlName="receiver">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput placeholder="Subject" formControlName="subject">
+      <input matInput placeholder="Subject" formControlname="subject">
     </mat-form-field>
     <br>
     <mat-form-field>
