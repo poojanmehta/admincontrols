@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Promocode Form</h1>
+  <form [formGroup]="promoform" (ngSubmit)="onPromoAdd()">
+    <mat-form-field>
+      <input matInput type="text" formControlName="pro_name" placeholder="Promocode Name">
+      <mat-error *ngIf="">This field is required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="pro_disc_rate" placeholder="Rate of Discount in %">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="pro_disc_flat" placeholder="Flat Discount">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="pro_min_pur" placeholder="Minimum Purchase">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="pro_max_disc" placeholder="Maximum Discount">
+    </mat-form-field>
+    <label id="example-radio-group-label">Select typ</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="pro_pur_type">
+      <mat-radio-button class="example-radio-button" *ngFor="let item of type" [value]="item">
+        {{item}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <mat-form-field>
+      <input matInput type="date" formControlName="pro_exp_date" placeholder="Expiery date of Promocode">
+    </mat-form-field>
+    <br>
+    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="promoform.invalid">Add New Promocode</button>
+  </form>
+</div>

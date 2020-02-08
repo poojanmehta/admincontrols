@@ -10,23 +10,24 @@ import { trainer } from './trainer';
 })
 
 export class TrainerComponent implements OnInit {
-  constructor(private _trainerdata:TrainerdataserviceService) { }
+  constructor(private _trainerdata: TrainerdataserviceService) { }
   selectedFile: File = null;
-  gender:string[]=['male','female'];
-  trainerform:FormGroup
+  gender: string[] = ['male', 'female'];
+  trainerform: FormGroup
   ngOnInit() {
-    this.trainerform=new FormGroup({
-      t_name:new FormControl(null,[Validators.required]),
-      t_gen: new FormControl(null,[Validators.required]),
-      t_dob:new FormControl(null,[Validators.required]),
-      t_con:new FormControl(null,[Validators.required,]),
-      t_qlf:new FormControl(null,[Validators.required]),
+    this.trainerform = new FormGroup({
+      t_name: new FormControl(null, [Validators.required]),
+      t_gen: new FormControl(null, [Validators.required]),
+      t_dob: new FormControl(null, [Validators.required]),
+      t_con: new FormControl(null, [Validators.required,]),
+      t_qlf: new FormControl(null),
       t_img: new FormControl(null),
-      t_exp:new FormControl(null,[Validators.required])
+      t_exp: new FormControl(null)
     })
 
   }
-  onadd(){
+  onadd() {
+    console.log(this.trainerform.value.t_name);
     let fd = new FormData();
     fd.append('t_name', this.trainerform.value.t_name);
     fd.append('t_gen', this.trainerform.value.t_gen);
@@ -42,11 +43,11 @@ export class TrainerComponent implements OnInit {
     fd.append('t_exp', this.trainerform.value.t_exp);
 
     this._trainerdata.addTrainer(fd).subscribe(
-      (data:trainer[])=>{
+      (data: any[]) => {
         console.log(data);
         alert("added");
       }
-    )
+    );
 
   }
   onChange(f) {

@@ -32,13 +32,7 @@ export class ClientsignupComponent implements OnInit {
       console.log(this.signupForm.value);
       this._signupData.onsignup(this.signupForm.value).subscribe(
         (x: client[]) => {
-          console.log(x);
-          if (x.length == 1) {
-            alert('valid');
-          }
-          else {
-            alert('invalid');
-          }
+          alert('Client Added Successfully');
         }
       );
     }

@@ -12,8 +12,6 @@ export class TrainerdataserviceService {
     return this._http.get(this.url);
   }
   addTrainer(obj: FormData) {
-    // const body=JSON.stringify(obj);
-    // const head=new HttpHeaders().set(environment.header,environment.value);
     return this._http.post(this.url, obj);
 
   }

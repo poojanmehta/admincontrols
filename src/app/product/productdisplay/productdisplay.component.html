@@ -5,7 +5,7 @@
 
 
 
-  <mat-form-field  style="margin: 0% 1% 0% 1%;">
+  <mat-form-field style="margin: 0% 1% 0% 1%; width:12%">
     <mat-select (selectionChange)="onCategoryChange()" [(value)]="selectedcat">
       <mat-option [value]=-1 selected>All</mat-option>
       <mat-option *ngFor="let item of cat" [value]="item.sct_id">
@@ -15,11 +15,12 @@
   </mat-form-field>
 
 
-  <mat-checkbox matTooltip="Show products only with Promocode" (change)="onPromoBox()">
+  <!-- <mat-checkbox matTooltip="Show products only with Promocode" (change)="onPromoBox()">
     Promocode
-  </mat-checkbox>
+  </mat-checkbox> -->
 
   <table mat-table [dataSource]="dataSource">
+
     <ng-container matColumnDef="check">
       <th mat-header-cell *matHeaderCellDef> </th>
       <td mat-cell *matCellDef="let element">
