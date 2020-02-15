@@ -23,6 +23,7 @@ export class ProductdisplayComponent implements OnInit {
   diaplayedColumns: string[] = ['check', 'name', 'price', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   checkarr: number[] = [];
+  checkproduct:product[]=[];
   product_tbl: product[];
   temparr: product[];
   pricearr: product[]=[];
