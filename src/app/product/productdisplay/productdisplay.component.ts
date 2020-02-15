@@ -84,7 +84,7 @@ export class ProductdisplayComponent implements OnInit {
     if (this.flag == false) {
       this.temparr = [];
       for (let i = 0; i < this.product_tbl.length; i++) {
-        if (this.product_tbl[i].p_code != null) {
+        if (this.product_tbl[i].p_disc != null) {
           this.temparr.push(this.product_tbl[i]);
         }
       }

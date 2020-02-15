@@ -10,7 +10,7 @@ export class product {
     public p_ben: String,
     public p_usage: string,
     public p_img: string,
-    public p_code: string,
+    public p_disc: number,
     public fk_sct_id: number,
   ) { }
 }
