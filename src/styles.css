@@ -11,8 +11,12 @@ body {
 
 
 .container {
-  width: 96%;
+  width: 95%;
   margin: 2% 2% 2% 2%;
+  box-shadow: 1px 1px 7.5px gray;
+  border-radius: 3px;
+  padding: 0.5%;
+  background-color: white;
 }
 
 .mat-elevation-z8{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { PromodataService } from './promodata.service';
+import { promo } from './promocode';
 
 @Component({
   selector: 'app-promocode',
@@ -10,10 +11,11 @@ import { PromodataService } from './promodata.service';
 export class PromocodeComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
-              private _promodata:PromodataService) { }
+    private _promodata: PromodataService) { }
 
   promoform: FormGroup;
-  type: string[] = ['product', 'service']
+  pro_type: string[] = ['product', 'service'];
+  promocode:promo[]=[];
 
   ngOnInit() {
     this.promoform = this._fb.group({
@@ -24,14 +26,16 @@ export class PromocodeComponent implements OnInit {
       pro_max_disc: new FormControl(0, [Validators.required]),
       pro_pur_type: new FormControl(null, [Validators.required]),
       pro_exp_date: new FormControl(null)
-    })
+    });
   }
 
   onPromoAdd() {
     this._promodata.addPromocode(this.promoform.value).subscribe(
-      (data:any[]) => {
+      (data: any[]) => {
         console.log('Promocode Added');
       }
     );
   }
+
+
 }

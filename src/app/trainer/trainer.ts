@@ -1,6 +1,6 @@
 export class trainer {
   constructor(
-    public t_id:number,
+    public t_id: number,
     public t_name: string,
     public t_gen: string,
     public t_dob: Date,

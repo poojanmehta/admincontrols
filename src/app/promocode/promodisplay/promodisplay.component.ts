@@ -13,7 +13,7 @@ export class PromodisplayComponent implements OnInit {
 
   constructor(private _promodata: PromodataService, private _router: Router) { }
   promoArr: promo[];
-  displayedColumns: string[] = ['name','min_pur','max_disc','disc_rate','disc_flat','exp_date'];
+  displayedColumns: string[] = ['name','min_pur','max_disc','disc_rate','disc_flat','exp_date','action'];
   dataSource = new MatTableDataSource<promo>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -40,5 +40,17 @@ export class PromodisplayComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  onDeletePromo(promocode: promo) {
+    this._promodata.deletePromo(promocode.pro_id).subscribe(
+      (data:any[]) => {
+        console.log(data);
+        this.promoArr.splice(this.promoArr.indexOf(promocode),1);
+        this.dataSource.data = this.promoArr;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    );
   }
 }

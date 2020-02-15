@@ -16,7 +16,11 @@ export class PromodataService {
     return this._http.post(this.url, body, { headers: head });
   }
 
-  getPromocode(){
+  getPromocode() {
     return this._http.get(this.url);
+  }
+
+  deletePromo(pro_id: number) {
+    return this._http.delete(this.url + pro_id);
   }
 }
