@@ -25,7 +25,9 @@ export class ProductdisplayComponent implements OnInit {
   checkarr: number[] = [];
   product_tbl: product[];
   temparr: product[];
-  promo: string;
+  pricearr: product[]=[];
+  p_disc:number;
+  p_disc_price:number;
   cat: category[] = [];
   selectedcat: number = -1;
   flag: boolean = false;
@@ -55,11 +57,13 @@ export class ProductdisplayComponent implements OnInit {
 
     if (this.checkarr.find(x => x == row.p_id)) {
       this.checkarr.splice(this.checkarr.indexOf(row.p_id), 1);
+      this.pricearr.splice(this.pricearr.indexOf(row), 1);
     }
     else {
       this.checkarr.push(row.p_id);
+      this.pricearr.push(row);
     }
-    console.log(this.checkarr);
+    console.log(this.pricearr);
   }
 
   onCategoryChange() {
@@ -149,8 +153,8 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
-  onDeletePromocode(){
-    if(confirm('Are you sure you want to delete Promocodes?')){
+  onDeletePromocode() {
+    if (confirm('Are you sure you want to delete Promocodes?')) {
       this._data.deletePromo(this.checkarr).subscribe(
         (data: any) => {
           this.ngOnInit();
@@ -162,14 +166,17 @@ export class ProductdisplayComponent implements OnInit {
   }
   onAddPromocode() {
     const dialogRef = this._dialog.open(AddpromodialogComponent, {
-      data: { promo: this.promo }
+      data: { p_disc: this.p_disc }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.promo = result;
-      if (this.promo != undefined) {
+      this.p_disc = result;
+      if (this.p_disc != undefined) {
+        for (let i = 0; i < this.checkarr.length; i++) {
+
+        }
         let obj = {
           chkarr: this.checkarr,
-          promo: this.promo
+          p_disc: this.p_disc
         }
         this._data.addPromo(obj).subscribe(
           (data: any) => {

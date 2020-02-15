@@ -6,7 +6,7 @@ export class promo {
     public pro_disc_flat: number,
     public pro_min_pur: number,
     public pro_max_disc: number,
-    public pro_pur_type: number,
+    public pro_pur_type: string,
     public pro_exp_date: Date,
   ) { }
 }

@@ -3,6 +3,8 @@ export class product {
     public p_id: number,
     public p_name: string,
     public p_price: number,
+     public p_disc: number,
+    public p_disc_price:number,
     public p_dis: string,
     public p_qty: number,
     public p_unit: number,
@@ -10,7 +12,6 @@ export class product {
     public p_ben: String,
     public p_usage: string,
     public p_img: string,
-    public p_disc: number,
     public fk_sct_id: number,
   ) { }
 }

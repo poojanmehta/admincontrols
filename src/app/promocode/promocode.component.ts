@@ -13,7 +13,7 @@ export class PromocodeComponent implements OnInit {
               private _promodata:PromodataService) { }
 
   promoform: FormGroup;
-  type: string[] = ['product', 'service']
+  type: string[] = ['product', 'service'];
 
   ngOnInit() {
     this.promoform = this._fb.group({
@@ -30,7 +30,7 @@ export class PromocodeComponent implements OnInit {
   onPromoAdd() {
     this._promodata.addPromocode(this.promoform.value).subscribe(
       (data:any[]) => {
-        console.log('Promocode Added');
+        console.log(data);
       }
     );
   }
