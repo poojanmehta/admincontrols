@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, DialogPosition } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, DialogPosition } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-addpromodialog',

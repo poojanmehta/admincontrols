@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "KratosFrontEnd"
+  "defaultProject": "KratosFrontEnd",
+  "cli": {
+    "analytics": false
+  }
 }

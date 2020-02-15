@@ -4,7 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.component';
 import { CategorydataService } from 'src/app/category/categorydata.service';
 import { category } from 'src/app/category/category';
@@ -23,16 +24,15 @@ export class ProductdisplayComponent implements OnInit {
   diaplayedColumns: string[] = ['check', 'name', 'price', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   checkarr: number[] = [];
-  checkproduct:product[]=[];
   product_tbl: product[];
   temparr: product[];
-  pricearr: product[]=[];
-  p_disc:number;
-  p_disc_price:number;
+  pricearr: product[] = [];
+  p_disc: number;
+  p_disc_price: number;
   cat: category[] = [];
   selectedcat: number = -1;
   flag: boolean = false;
-
+  //const arr[]: Array<{id: number, text: string}> = []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 

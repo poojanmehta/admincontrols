@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog, MatTableDataSource } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { TrainerdataserviceService } from '../trainerdataservice.service';
 // import { SelectionModel } from '@angular/cdk/collections';
 import { trainer } from '../trainer';
