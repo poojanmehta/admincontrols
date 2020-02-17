@@ -175,10 +175,6 @@ export class ProductdisplayComponent implements OnInit {
         for (let i = 0; i < this.checkarr.length; i++) {
 
         }
-        let obj = {
-          chkarr: this.checkarr,
-          p_disc: this.p_disc
-        }
         this._data.addPromo(obj).subscribe(
           (data: any) => {
             this.ngOnInit();
