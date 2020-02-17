@@ -10,13 +10,17 @@ export class PromodataService {
   url: string = environment.url + 'promo/';
 
   constructor(private _http: HttpClient) { }
-  addPromocode(p_) {
+  addPromocode(item: any[]) {
     const body = JSON.stringify(item);
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.post(this.url, body, { headers: head });
   }
 
-  getPromocode(){
+  getPromocode() {
     return this._http.get(this.url);
+  }
+
+  deletePromo(pro_id: number) {
+    return this._http.delete(this.url + pro_id);
   }
 }

@@ -50,12 +50,17 @@ export class ProductComponent implements OnInit {
     );
   }
   onAdd() {
-    for (let n = 0; n <= this.i; n++) {
+    for (let n = 0; n <= this.i; n++){
       if (n == 0) {
+        if(this.productform.value.p_ben[n].new_ben != null){
         this.benifits = this.productform.value.p_ben[n].new_ben;
+        }
       }
       else {
+        if(this.productform.value.p_ben[n].new_ben != null){
         this.benifits = this.benifits + '/' + this.productform.value.p_ben[n].new_ben;
+        }
+        console.log(this.productform.value.p_ben[n].new_ben)
         console.log(this.benifits);
       }
     }
@@ -89,7 +94,7 @@ export class ProductComponent implements OnInit {
   }
   newBenifit(): FormGroup {
     return this._fb.group({
-      new_ben: new FormControl(null)
+      new_ben: new FormControl(null,[Validators.required])
     });
   }
   newControl() {

@@ -26,13 +26,14 @@ export class ProductdisplayComponent implements OnInit {
   checkarr: number[] = [];
   product_tbl: product[];
   temparr: product[];
-  pricearr: product[] = [];
-  p_disc: number;
-  p_disc_price: number;
+  priceArr: product[] = [];
+  promo: string;
   cat: category[] = [];
   selectedcat: number = -1;
   flag: boolean = false;
-  //const arr[]: Array<{id: number, text: string}> = []
+  //const priceobj[]: Array<{ id: number, price: number }> = [];
+
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -58,13 +59,13 @@ export class ProductdisplayComponent implements OnInit {
 
     if (this.checkarr.find(x => x == row.p_id)) {
       this.checkarr.splice(this.checkarr.indexOf(row.p_id), 1);
-      this.pricearr.splice(this.pricearr.indexOf(row), 1);
+      this.priceArr.splice(this.priceArr.indexOf(row), 1);
     }
     else {
       this.checkarr.push(row.p_id);
-      this.pricearr.push(row);
+      this.priceArr.push(row);
     }
-    console.log(this.pricearr);
+    console.log(this.checkarr);
   }
 
   onCategoryChange() {
@@ -165,23 +166,35 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
+
   onAddPromocode() {
+    interface obj {
+      id: number,
+      price: number
+    }
+
+    const priceobj: obj[] = [];
     const dialogRef = this._dialog.open(AddpromodialogComponent, {
-      data: { p_disc: this.p_disc }
+      data: { promo: this.promo }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.p_disc = result;
-      if (this.p_disc != undefined) {
+      this.promo = result;
+      if (this.promo != undefined) {
         for (let i = 0; i < this.checkarr.length; i++) {
-
+          let obj2 = {
+            id: this.checkarr[i],
+            price: this.priceArr[i].p_price
+          };
+          priceobj.push(obj2);
+          console.log(priceobj[i]);
         }
-        this._data.addPromo(obj).subscribe(
+        this._data.addPromo(priceobj).subscribe(
           (data: any) => {
             this.ngOnInit();
+            console.log(data);
             alert('Promocode Added Succsessfully');
             this.checkarr.length = 0;
           }
-
         );
       }
     });
