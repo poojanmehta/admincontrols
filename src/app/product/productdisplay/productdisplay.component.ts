@@ -4,7 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductmoreinfoComponent } from '../productmoreinfo/productmoreinfo.component';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { AddpromodialogComponent } from '../addpromodialog/addpromodialog.component';
 import { CategorydataService } from 'src/app/category/categorydata.service';
 import { category } from 'src/app/category/category';
@@ -25,10 +26,13 @@ export class ProductdisplayComponent implements OnInit {
   checkarr: number[] = [];
   product_tbl: product[];
   temparr: product[];
+  priceArr: product[] = [];
   promo: string;
   cat: category[] = [];
   selectedcat: number = -1;
   flag: boolean = false;
+  //const priceobj[]: Array<{ id: number, price: number }> = [];
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -55,9 +59,11 @@ export class ProductdisplayComponent implements OnInit {
 
     if (this.checkarr.find(x => x == row.p_id)) {
       this.checkarr.splice(this.checkarr.indexOf(row.p_id), 1);
+      this.priceArr.splice(this.priceArr.indexOf(row), 1);
     }
     else {
       this.checkarr.push(row.p_id);
+      this.priceArr.push(row);
     }
     console.log(this.checkarr);
   }
@@ -149,8 +155,8 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
-  onDeletePromocode(){
-    if(confirm('Are you sure you want to delete Promocodes?')){
+  onDeletePromocode() {
+    if (confirm('Are you sure you want to delete Promocodes?')) {
       this._data.deletePromo(this.checkarr).subscribe(
         (data: any) => {
           this.ngOnInit();
@@ -160,24 +166,35 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
+
   onAddPromocode() {
+    interface obj {
+      id: number,
+      price: number
+    }
+
+    const priceobj: obj[] = [];
     const dialogRef = this._dialog.open(AddpromodialogComponent, {
       data: { promo: this.promo }
     });
     dialogRef.afterClosed().subscribe(result => {
       this.promo = result;
       if (this.promo != undefined) {
-        let obj = {
-          chkarr: this.checkarr,
-          promo: this.promo
+        for (let i = 0; i < this.checkarr.length; i++) {
+          let obj2 = {
+            id: this.checkarr[i],
+            price: this.priceArr[i].p_price
+          };
+          priceobj.push(obj2);
+          console.log(priceobj[i]);
         }
-        this._data.addPromo(obj).subscribe(
+        this._data.addPromo(priceobj).subscribe(
           (data: any) => {
             this.ngOnInit();
+            console.log(data);
             alert('Promocode Added Succsessfully');
             this.checkarr.length = 0;
           }
-
         );
       }
     });
