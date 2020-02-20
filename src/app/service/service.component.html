@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Service Form</h1>
+  <form [formGroup]="serviceForm" (ngSubmit)="onAddService()">
+    <mat-form-field>
+      <input matInput type="text" formControlName="s_name" placeholder="Service Name">
+      <mat-error *ngIf="">This field is required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="s_price" placeholder="Service price ">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="number" formControlName="s_dur" placeholder="Service Duration in month">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput rows="3" formControlName="s_disc" placeholder="Service discription"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput rows="3" formControlName="s_ben" placeholder="Service Benifits"></textarea>
+    </mat-form-field>
+    <br>
+    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="serviceForm.invalid">Add New Services</button>
+  </form>
+</div>
+
