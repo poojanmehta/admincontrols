@@ -22,4 +22,7 @@ export class CategorydataService {
   getSubcategory(){
     return this._http.get(this.url2);
   }
+  deletesubcategory(sct_id:number){
+    return this._http.delete(this.url+sct_id);
+  }
 }

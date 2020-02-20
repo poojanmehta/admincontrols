@@ -52,4 +52,9 @@ export class CategoryComponent implements OnInit {
       }
     );
   }
+
+  onDelete(row)
+  {
+
+  }
 }

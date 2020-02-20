@@ -13,7 +13,6 @@ export class TrainerdataserviceService {
   }
   addTrainer(obj: FormData) {
     return this._http.post(this.url, obj);
-
   }
   deleteTrainer(t_id) {
     return this._http.delete(this.url + t_id)
