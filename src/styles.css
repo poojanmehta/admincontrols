@@ -37,6 +37,11 @@ body {
   color: whitesmoke;
 }
 
+.button {
+  margin: 2% 2% 2% 2%;
+  color: darkblue;
+}
+
 .b {
   font-size: 40px;
 }

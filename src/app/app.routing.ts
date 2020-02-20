@@ -17,6 +17,7 @@ import { PromocodeComponent } from './promocode/promocode.component';
 import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.component';
 import { ServiceComponent } from './service/service.component';
 import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay.component';
+import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.component';
 
 const arr: Routes = [
 
@@ -36,7 +37,8 @@ const arr: Routes = [
       {path:'promocode',component:PromocodeComponent},
       {path:'promodisplay',component:PromodisplayComponent},
       {path:'service',component:ServiceComponent},
-      {path:'servicedisplay',component:ServicedisplayComponent}
+      {path:'servicedisplay',component:ServicedisplayComponent},
+      {path:'serviceupdate/:s_id',component:ServiceupdateComponent}
     ]
   },
   { path: '**', component: PagenotfoundComponent }

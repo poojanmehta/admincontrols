@@ -1,0 +1,29 @@
+table{
+  width:100%;
+}
+.mat-form-field{
+  font-size:14px;
+  width:100%;
+}
+.columnstyle{
+  margin-left:1300px;
+}
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.customselect{
+  float: right;
+  margin-left: 1%;
+}

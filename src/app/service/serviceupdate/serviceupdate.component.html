@@ -1,0 +1,25 @@
+<form [formGroup]="updateform" (ngSubmit)="onUpdate()" class="container">
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="s_name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Price" formControlName="s_price">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Duration" formControlName="s_dur">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Discription" formControlName="s_disc">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Benifits" formControlName="s_ben">
+  </mat-form-field>
+  <br>
+
+  <button class="mainbutton" type="submit" mat-raised-button color="primary">Update Service Details</button>
+</form>

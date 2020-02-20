@@ -13,7 +13,7 @@ import { service } from '../service';
 export class ServicedisplayComponent implements OnInit {
 
   constructor(private _router:Router,private _data:ServiceService,private _dialog:MatDialog) { }
-    displayedcolumns:string[]=['name','price','dur','disc','ben'];
+    displayedcolumns:string[]=['name','price','dur','disc','ben','action'];
     datasource=new MatTableDataSource<service>();
   ngOnInit(): void {
     this._data.getAllServices().subscribe(
@@ -26,6 +26,18 @@ export class ServicedisplayComponent implements OnInit {
   onAdd() {
     this._router.navigate(['/nav/service']);
   }
+  onUpdate(row) {
+    this._router.navigate(['/nav/serviceupdate', row.s_id]);
+  }
 
-
+  onDelete(row) {
+    if (confirm('Are you sure you want to delete the Services?')) {
+      this._data.deleteService(row.s_id).subscribe(
+        (data: any[]) => {
+          console.log(data);
+          this.ngOnInit();
+        }
+      );
+    }
+  }
 }
