@@ -43,6 +43,8 @@ import { EmailsenderComponent } from './emailsender/emailsender.component';
 import { trainermoreinfocomponent } from './trainer/trainermoreinfo/trainermoreinfo.component';
 import { PromocodeComponent } from './promocode/promocode.component';
 import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.component';
+import { ServiceComponent } from './service/service.component';
+import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay.component';
 
 
 
@@ -67,7 +69,9 @@ import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.com
     AddpromodialogComponent,
     EmailsenderComponent,
     PromocodeComponent,
-    PromodisplayComponent
+    PromodisplayComponent,
+    ServiceComponent,
+    ServicedisplayComponent
   ],
   imports: [
     BrowserModule,
