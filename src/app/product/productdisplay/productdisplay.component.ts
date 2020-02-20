@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ɵConsole } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { product } from '../product';
@@ -27,7 +27,7 @@ export class ProductdisplayComponent implements OnInit {
   product_tbl: product[];
   temparr: product[];
   priceArr: product[] = [];
-  promo: string;
+  discount: number;
   cat: category[] = [];
   selectedcat: number = -1;
   flag: boolean = false;
@@ -85,7 +85,7 @@ export class ProductdisplayComponent implements OnInit {
   }
 
 
-  onPromoBox() {
+  onDiscountBox() {
     this.checkarr = [];
     if (this.flag == false) {
       this.temparr = [];
@@ -94,12 +94,14 @@ export class ProductdisplayComponent implements OnInit {
           this.temparr.push(this.product_tbl[i]);
         }
       }
-      this.diaplayedColumns.push('promo');
+      this.diaplayedColumns.push('discount');
+      this.diaplayedColumns.push('disc_price');
       this.dataSource.data = this.temparr;
       this.selectedcat = -1;
       this.flag = true;
     }
     else {
+      this.diaplayedColumns.pop();
       this.diaplayedColumns.pop();
       this.dataSource.data = this.product_tbl;
       this.flag = false;
@@ -155,47 +157,46 @@ export class ProductdisplayComponent implements OnInit {
       );
     }
   }
-  onDeletePromocode() {
+  onDeleteDiscount() {
     if (confirm('Are you sure you want to delete Promocodes?')) {
       this._data.deletePromo(this.checkarr).subscribe(
         (data: any) => {
-          this.ngOnInit();
-          alert('Promocodes deleted sucsessfully');
-          this.checkarr.length = 0;
+          if (confirm('Discounts deleted sucsessfully')) {
+            this.ngOnInit();
+            this.checkarr.length = 0;
+            console.log(data);
+          }
         }
       );
     }
   }
 
-  onAddPromocode() {
-    interface obj {
-      id: number,
-      price: number
-    }
-
-    const priceobj: obj[] = [];
+  onAddDiscount() {
     const dialogRef = this._dialog.open(AddpromodialogComponent, {
-      data: { promo: this.promo }
+      data: { discount: this.discount }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.promo = result;
-      if (this.promo != undefined) {
+      this.discount = result;
+      if (this.discount != undefined) {
         for (let i = 0; i < this.checkarr.length; i++) {
+          let discprice = (this.priceArr[i].p_price) - ((this.priceArr[i].p_price * this.discount) / 100);
           let obj2 = {
             id: this.checkarr[i],
-            price: this.priceArr[i].p_price
+            disc_price: discprice,
+            disc: this.discount
+
           };
-          priceobj.push(obj2);
-          console.log(priceobj[i]);
+          console.log(obj2);
+
+          this._data.addDiscount(obj2).subscribe(
+            (data: any) => {
+              console.log(data);
+            }
+          );
         }
-        this._data.addPromo(priceobj).subscribe(
-          (data: any) => {
-            this.ngOnInit();
-            console.log(data);
-            alert('Promocode Added Succsessfully');
-            this.checkarr.length = 0;
-          }
-        );
+        alert('added');
+        this.ngOnInit();
+        this.checkarr.length = 0;
       }
     });
   }

@@ -1,8 +1,6 @@
 .mat-raised-button {
   margin: 2% 2% 2% 2%;
-  position: relative;
-  font-size: 18px;
-  color: blue;
+  color: darkblue;
 }
 
 .b {
@@ -10,9 +8,10 @@
 }
 
 .myicon {
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-top: 4px;
   margin-right: 6px;
+  float:left;
 }
 
 table {

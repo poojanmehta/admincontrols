@@ -15,9 +15,9 @@
   </mat-form-field>
 
 
-  <!-- <mat-checkbox matTooltip="Show products only with Promocode" (change)="onPromoBox()">
-    Promocode
-  </mat-checkbox> -->
+  <mat-checkbox matTooltip="Show products only with Discount" (change)="onDiscountBox()">
+    Discount
+  </mat-checkbox>
 
   <table mat-table [dataSource]="dataSource">
 
@@ -44,6 +44,16 @@
       <td mat-cell *matCellDef="let element"> {{element.p_stock}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="discount">
+      <th mat-header-cell *matHeaderCellDef> Discount </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_disc}}% </td>
+    </ng-container>
+
+    <ng-container matColumnDef="disc_price">
+      <th mat-header-cell *matHeaderCellDef> Discounted Priice </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_disc_price}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
@@ -59,10 +69,7 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="promo">
-      <th mat-header-cell *matHeaderCellDef> Promocode </th>
-      <td mat-cell *matCellDef="let element"> {{element.p_code}} </td>
-    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
@@ -75,13 +82,13 @@
   <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Product
 </button>
 
-<button mat-raised-button class="button" (click)="onAddPromocode()" [disabled]="this.checkarr.length<=0"
+<button mat-raised-button class="button" (click)="onAddDiscount()" [disabled]="this.checkarr.length<=0"
   style="color: darkgreen;">
   <mat-icon class="myicon">add_circle_outlined</mat-icon>Add Discount
 </button>
-<button mat-raised-button class="button" (click)="onDeletePromocode()" [disabled]="this.checkarr.length<=0"
+<button mat-raised-button class="button" (click)="onDeleteDiscount()" [disabled]="this.checkarr.length<=0"
   style="color: darkred;">
-  <mat-icon class="myicon">remove_circle_outlined</mat-icon>Remove Promocode
+  <mat-icon class="myicon">remove_circle_outlined</mat-icon>Remove Discount
 </button>
 <button mat-raised-button class="button" (click)="onDeleteAllClick()" [disabled]="this.checkarr.length<=0"
   style="color:darkred;">
