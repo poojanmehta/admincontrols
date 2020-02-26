@@ -31,9 +31,9 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.productform = this._fb.group({
       p_name: new FormControl(null, [Validators.required]),
-      p_price: new FormControl(null, [Validators.required]),
+      p_price: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
       p_dis: new FormControl(null, [Validators.required]),
-      fk_sct_id: new FormControl(null),
+      fk_sct_id: new FormControl(null,[Validators.required]),
       p_qty: new FormControl(null, [Validators.required]),
       p_unit: new FormControl(null),
       p_stock: new FormControl(null),
