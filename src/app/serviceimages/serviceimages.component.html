@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Promocode Form</h1>
+  <form [formGroup]="imageform" (ngSubmit)="onimageAdd()">
+      <input type="file"  formControlName="image" (change)="onChange($event)">
+      <h5 *ngIf="">This field is required</h5>
+    <br>
+    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="imageform.invalid">Add New Servicemage</button>
+  </form>
+<div>
+
