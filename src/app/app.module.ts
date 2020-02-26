@@ -46,6 +46,7 @@ import { PromodisplayComponent } from './promocode/promodisplay/promodisplay.com
 import { ServiceComponent } from './service/service.component';
 import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay.component';
 import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.component';
+import { ServiceimagesComponent } from './serviceimages/serviceimages.component';
 
 
 
@@ -73,7 +74,8 @@ import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.co
     PromodisplayComponent,
     ServiceComponent,
     ServicedisplayComponent,
-    ServiceupdateComponent
+    ServiceupdateComponent,
+    ServiceimagesComponent
   ],
   imports: [
     BrowserModule,
