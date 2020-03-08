@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { product } from '../product';
 import { CategorydataService } from 'src/app/category/categorydata.service';
 import { category } from 'src/app/category/category';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-productupdate',
@@ -22,6 +23,7 @@ export class ProductupdateComponent implements OnInit {
     'gram',
     'litre',
     'mililiter'];
+  imageUrl: string = environment.url;
 
   constructor(private _router: Router,
     private _act: ActivatedRoute,

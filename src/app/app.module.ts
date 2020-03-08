@@ -47,6 +47,7 @@ import { ServiceComponent } from './service/service.component';
 import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay.component';
 import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.component';
 import { ServiceimagesComponent } from './serviceimages/serviceimages.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
@@ -103,7 +104,8 @@ import { ServiceimagesComponent } from './serviceimages/serviceimages.component'
     LayoutModule,
     MatDialogModule,
     MatRadioModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCarouselModule.forRoot(),
 
   ],
   providers: [],
