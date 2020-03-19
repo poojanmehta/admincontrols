@@ -6,9 +6,10 @@
       <mat-error>This field is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" formControlName="p_price" placeholder="Price">
+      <input matInput type="text" formControlName="p_price" placeholder="Price">
       <mat-error *ngIf="productform.get('p_price').hasError('pattern')">Enter numbers only</mat-error>
       <mat-error *ngIf="productform.get('p_price').hasError('required')">This field is required</mat-error>
+      <!-- <mat-error *ngIf="productform.get('p_price').hasError('maxlength')">Maximum length is 10</mat-error> -->
     </mat-form-field>
     <mat-form-field>
       <mat-label>Select Category</mat-label>

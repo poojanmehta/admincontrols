@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./serviceimages.component.css']
 })
 export class ServiceimagesComponent implements OnInit {
-  selectedFile: File;
 
   constructor(private fb: FormBuilder,
     private _imagedata: ImagedataserviceService,
@@ -20,30 +19,38 @@ export class ServiceimagesComponent implements OnInit {
 
   imageform: FormGroup;
   serviceArr: service[] = [];
-  fk_s_id: number = null;
+  data: service;
+  fk_s_id: number;
+  selectedFile: File;
+
 
   ngOnInit(): void {
-    this.fk_s_id = this._act.snapshot.params['s_id'];
-    console.log(this.fk_s_id);
     this._servicedata.getAllServices().subscribe(
-      (data:service[]) => {
+      (data: service[]) => {
         this.serviceArr = data;
-        this.fk_s_id = this.serviceArr[0].s_id;
+        console.log(data);
+      },(err) => {}
+      , () => {
+        this.createForm();
       }
     );
+  }
 
+  createForm() {
+    this.fk_s_id = + this._act.snapshot.params['s_id'];
     this.imageform = this.fb.group({
       image: new FormControl(null, [Validators.required]),
-      service_id: new FormControl([Validators.required])
+      service_id: new FormControl(null, [Validators.required])
     });
     this.imageform.controls['service_id'].setValue(this.fk_s_id);
   }
+
 
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
   }
 
-  onimageAdd(fk_s_id:number) {
+  onimageAdd(fk_s_id: number) {
     let fd = new FormData();
     if (this.selectedFile != null) {
       fd.append('image', this.selectedFile, this.selectedFile.name);
