@@ -1,4 +1,5 @@
 <form [formGroup]="updateform" (ngSubmit)="onUpdate()" class="container">
+  <h2>Update Service Data</h2>
   <mat-form-field>
     <input matInput placeholder="Name" formControlName="s_name">
   </mat-form-field>
@@ -23,3 +24,51 @@
 
   <button class="mainbutton" type="submit" mat-raised-button color="primary">Update Service Details</button>
 </form>
+
+<div class="container">
+ <h2 style="width: 50%;float: left;">Update Service Images</h2>
+ <button class="mainbutton" mat-raised-button color="primary"
+ (click)="addImage()"
+ style="width: 50%;float: left;margin-top: 20px;background-color: lavender;color: blue;">
+  <mat-icon class="myicon">add_photo_alternate</mat-icon>
+  Add New Image
+</button>
+
+<br>
+<br>
+
+<mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="false"
+  interval="5000"
+  color="#000000"
+  maxWidth="500"
+  proportion="25"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let item of imageArr; let i = index"
+    [image]="slide[i]"
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+  >  <button class="mainbutton" (click)="deleteImage(item)" mat-raised-button
+  style="background-color: firebrick;
+  color:white;
+  margin: 21.5% 1% 0% 0%;
+  width: auto;
+  float: right;"><mat-icon class="myicon">delete_outlined</mat-icon>Delete This Image</button>
+</mat-carousel-slide>
+</mat-carousel>
+
+<br>
+
+
+
+</div>
+

@@ -10,6 +10,7 @@ export class ImagedataserviceService {
 
   constructor(private _http: HttpClient) { }
   addImage(item: FormData) {
+    console.log(item);
     return this._http.post(this.url, item);
   }
 
@@ -19,6 +20,9 @@ export class ImagedataserviceService {
 
   deleteImage(img_id: number) {
     return this._http.delete(this.url + img_id);
+  }
 
+  getImageById(fk_s_id:number) {
+    return this._http.get(this.url+fk_s_id);
   }
 }

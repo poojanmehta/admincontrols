@@ -30,7 +30,7 @@ export class ProductdisplayComponent implements OnInit {
   discount: number;
   cat: category[] = [];
   selectedcat: number = -1;
-  flag: boolean = false;
+  discbox: boolean = false;
   //const priceobj[]: Array<{ id: number, price: number }> = [];
 
 
@@ -86,8 +86,9 @@ export class ProductdisplayComponent implements OnInit {
 
 
   onDiscountBox() {
+    this.discbox = !this.discbox
     this.checkarr = [];
-    if (this.flag == false) {
+    if (this.discbox == true) {
       this.temparr = [];
       for (let i = 0; i < this.product_tbl.length; i++) {
         if (this.product_tbl[i].p_disc != null) {
@@ -98,14 +99,13 @@ export class ProductdisplayComponent implements OnInit {
       this.diaplayedColumns.push('disc_price');
       this.dataSource.data = this.temparr;
       this.selectedcat = -1;
-      this.flag = true;
     }
     else {
       this.diaplayedColumns.pop();
       this.diaplayedColumns.pop();
       this.dataSource.data = this.product_tbl;
-      this.flag = false;
     }
+    console.log(this.discbox);
   }
 
   onAdd() {
@@ -163,6 +163,9 @@ export class ProductdisplayComponent implements OnInit {
         (data: any) => {
           if (confirm('Discounts deleted sucsessfully')) {
             this.ngOnInit();
+            this.discbox = false;
+            this.diaplayedColumns.pop();
+            this.diaplayedColumns.pop();
             this.checkarr.length = 0;
             console.log(data);
           }

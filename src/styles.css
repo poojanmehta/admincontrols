@@ -30,7 +30,7 @@ body {
   border-radius: 3px;
 }
 
-.mat-raised-button {
+.button {
   margin: 2% 2% 2% 2%;
   position: relative;
   font-size: 18px;

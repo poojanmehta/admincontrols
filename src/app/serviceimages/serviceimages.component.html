@@ -1,10 +1,20 @@
 <div class="container">
-  <h1>Promocode Form</h1>
-  <form [formGroup]="imageform" (ngSubmit)="onimageAdd()">
+  <h1>Image Add Form</h1>
+  <form [formGroup]="imageform" (ngSubmit)="onimageAdd(fk_s_id)">
       <input type="file"  formControlName="image" (change)="onChange($event)">
       <h5 *ngIf="">This field is required</h5>
-    <br>
-    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="imageform.invalid">Add New Servicemage</button>
+    <br><br><br>
+    <mat-form-field>
+      <mat-label>Select Service</mat-label>
+      <mat-select [(value)]="fk_s_id" formControlName="service_id" required>
+        <mat-option *ngFor="let item of serviceArr" [(value)]="item.s_id">
+          {{item.s_name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+
+    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="imageform.invalid">Add New Service Image</button>
   </form>
 <div>
 
