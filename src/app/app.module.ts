@@ -51,7 +51,6 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +104,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatDialogModule,
     MatRadioModule,
     MatTooltipModule,
-    MatCarouselModule.forRoot(),
+    MatCarouselModule.forRoot()
 
   ],
   providers: [],
