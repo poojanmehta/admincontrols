@@ -24,6 +24,7 @@ import { OrdersassignedComponent } from './orders/ordersassigned/ordersassigned.
 import { OrdersnotassignedComponent } from './orders/ordersnotassigned/ordersnotassigned.component';
 import { OrderspastComponent } from './orders/orderspast/orderspast.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const arr: Routes = [
@@ -37,6 +38,7 @@ const arr: Routes = [
       { path: 'productadd', component: ProductComponent },
       { path: 'productupdate/:p_id', component: ProductupdateComponent },
       { path: 'category', component: CategoryComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'trainer', component: TrainerComponent },
       { path: 'trainerdisplay', component: TrainerdisplayComponent },
       { path: 'trainerupdate/:t_id', component: TrainerupdateComponent },

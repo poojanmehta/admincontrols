@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'side' : 'side'">
-    <mat-toolbar style="font-size: 35px;margin: 10px 10px 0px 0px;">MENU</mat-toolbar>
+    <mat-toolbar style="font-size: 25px;margin: 10px 10px 0px 0px;">MENU</mat-toolbar>
 
     <mat-nav-list>
       <a mat-list-item routerLink="/" *ngIf="user_login">Log in</a>

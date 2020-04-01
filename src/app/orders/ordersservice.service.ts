@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from "src/environments/environment";
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +23,14 @@ export class OrdersserviceService {
   getAllAssignedOrders() {
     return this._http.get(this.url3);
   }
-  assignDeliveryboy() {
-
+  assignDeliveryboy(obj:any) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url2, body, { headers: head });
   }
-  updateStatus() {
-
+  updateStatus(obj:any) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url3, body, { headers: head });
   }
 }

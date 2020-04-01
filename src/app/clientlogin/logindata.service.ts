@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogindataService {
-  private url: string = 'http://localhost:3000/client/';
+  private url: string = environment.url + 'client/';
   constructor(private _http:HttpClient) { }
 
   getlogin(item) {

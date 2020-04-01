@@ -24,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -54,6 +55,11 @@ import { OrdersassignedComponent } from './orders/ordersassigned/ordersassigned.
 import { OrdersnotassignedComponent } from './orders/ordersnotassigned/ordersnotassigned.component';
 import { OrderspastComponent } from './orders/orderspast/orderspast.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
+import { AssigndboydialogComponent } from "./orders/ordersnotassigned/ordersnotassigned.component";
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 
@@ -87,7 +93,9 @@ import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
     OrdersassignedComponent,
     OrdersnotassignedComponent,
     OrderspastComponent,
-    DeliveryboyComponent
+    DeliveryboyComponent,
+    AssigndboydialogComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -113,11 +121,13 @@ import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
     MatTreeModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatDialogModule,
     MatRadioModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
     MatTabsModule,
     MatCarouselModule.forRoot(),
+    MatGridListModule,
+    MatMenuModule,
 
   ],
   providers: [],

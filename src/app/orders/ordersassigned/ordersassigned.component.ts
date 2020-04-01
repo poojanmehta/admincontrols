@@ -11,7 +11,7 @@ import { OrdersserviceService } from '../ordersservice.service';
 })
 export class OrdersassignedComponent implements OnInit {
 
-  constructor(private orderdata: OrdersserviceService) { }
+  constructor(private _orderdata: OrdersserviceService) { }
 
   diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'dd_id']
   dataSource = new MatTableDataSource<any>();
@@ -22,7 +22,7 @@ export class OrdersassignedComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.orderdata.getAllAssignedOrders().subscribe(
+    this._orderdata.getAllAssignedOrders().subscribe(
       (data: any) => {
         this.dataSource.data = data;
         this.ordersArr = data;
@@ -31,8 +31,21 @@ export class OrdersassignedComponent implements OnInit {
     );
   }
 
-  update() {
-
+  update(order) {
+    console.log(order.dd_id);
+    if (confirm('Are you sure? you are updating status')) {
+      const obj = {
+        dd_id: order.dd_id
+      };
+      this._orderdata.updateStatus(obj).subscribe(
+        (data: any) => {
+          console.log(data);
+          alert('Order is complete! Find this order in past orders');
+          this.ordersArr.splice(this.ordersArr.indexOf(order), 1);
+          this.dataSource.data = this.ordersArr;
+        }
+      );
+    }
   }
 
 
