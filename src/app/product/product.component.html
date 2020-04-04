@@ -22,18 +22,26 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput type="text" formControlName="p_dis" placeholder="Discription">
+
     </mat-form-field>
     <mat-form-field style="width: 74%;">
-      <input matInput type="number" formControlName="p_qty" placeholder="Quantity">
+      <input matInput type="number" minlength="1" formControlName="p_qty" placeholder="Quantity">
+      <mat-error *ngIf="productform.get('p_qty').hasError('pattern')">Enter numbers only</mat-error>
+      <mat-error *ngIf="productform.get('p_qty').hasError('required')">This field is required</mat-error>
+
     </mat-form-field>
     <mat-form-field class="customselect" style="width:25%">
       <mat-label>Select Unit</mat-label>
       <mat-select formControlName="p_unit">
         <mat-option *ngFor="let item of unit" [value]="item">{{item}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+        </mat-select>
+        <mat-error *ngIf="productform.get('p_unit').hasError('required')">This field is required</mat-error>
+      </mat-form-field>
     <mat-form-field>
       <input matInput type="number" formControlName="p_stock" placeholder="Available Stock">
+      <mat-error *ngIf="productform.get('p_stock').hasError('pattern')">Enter numbers only</mat-error>
+      <mat-error *ngIf="productform.get('p_stock').hasError('required')">This field is required</mat-error>
+
     </mat-form-field>
     <div formArrayName="p_ben" *ngFor="let item of productform.get('p_ben')['controls']; let i = index">
       <div [formGroupName]="i">

@@ -3,7 +3,8 @@
   <form [formGroup]="trainerform" (ngSubmit)="onadd()">
     <mat-form-field>
       <input matInput type="text" formControlName="t_name" placeholder="trainer Name">
-    </mat-form-field><br>
+      <mat-error *ngIf="trainerform.get('t_name').hasError('required') && trainerform.get('t_name').dirty" >Name is required</mat-error>
+ </mat-form-field><br>
     <label id="example-radio-group-label">Select Gender</label>
     <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="t_gen">
       <mat-radio-button class="example-radio-button" *ngFor="let gen of gender" [value]="gen">
@@ -15,19 +16,21 @@
       <input matInput type="date" size=10 formControlName="t_dob" placeholder="date of birth">
     </mat-form-field><br>
     <mat-form-field>
-      <input matInput type="number" formControlName="t_con" placeholder="contact">
-      <mat-error *ngIf="trainerform.get('t_con').hasError('required') && trainerform.get('t_con').dirty" >mobile no is required</mat-error>
+      <input matInput type="text" formControlName="t_con" placeholder="contact">
+      <mat-error *ngIf="trainerform.get('t_con').hasError('required') && trainerform.get('t_con').dirty" >Mobile Number is required</mat-error>
       <mat-error *ngIf="trainerform.get('t_con').hasError('maxlength')" >only 10 digits</mat-error>
       <mat-error *ngIf="trainerform.get('t_con').hasError('pattern') " > Only digits</mat-error>
     </mat-form-field><br>
     <mat-form-field>
       <input matInput type="text" formControlName="t_qlf" placeholder="qualification">
+      <mat-error *ngIf="trainerform.get('t_qlf').hasError('required') && trainerform.get('t_qlf').dirty" >Qualification is required</mat-error>
     </mat-form-field><br>
     <input type="file" formControlName="t_img" (change)="onChange($event)">
    <br>
    <mat-form-field>
       <input matInput type="text" formControlName="t_exp" placeholder="experiance">
-  </mat-form-field><br>
+
+    </mat-form-field><br>
 
     <button class="mainbutton" type="submit" mat-raised-button color="primary" [disabled]="trainerform.invalid">Add New Trainer</button>
   </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrainerdataserviceService } from './trainerdataservice.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { trainer } from './trainer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trainer',
@@ -10,17 +11,18 @@ import { trainer } from './trainer';
 })
 
 export class TrainerComponent implements OnInit {
-  constructor(private _trainerdata: TrainerdataserviceService) { }
+  constructor(private _trainerdata: TrainerdataserviceService,
+    private _router:Router  ) { }
   selectedFile: File = null;
   gender: string[] = ['male', 'female'];
   trainerform: FormGroup
   ngOnInit() {
     this.trainerform = new FormGroup({
-      t_name: new FormControl(null, [Validators.required]),
+      t_name: new FormControl(null, [Validators.required,]),
       t_gen: new FormControl(null, [Validators.required]),
       t_dob: new FormControl(null, [Validators.required]),
-      t_con: new FormControl(null, [Validators.required,Validators.pattern('[0-9]*')]),
-      t_qlf: new FormControl(null),
+      t_con: new FormControl(null, [Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(10)]),
+      t_qlf: new FormControl(null,[Validators.required]),
       t_img: new FormControl(null),
       t_exp: new FormControl(null)
     })
@@ -45,7 +47,7 @@ export class TrainerComponent implements OnInit {
     this._trainerdata.addTrainer(fd).subscribe(
       (data: any[]) => {
         console.log(data);
-        alert("added");
+        alert("added succesfully");
       }
     );
 
