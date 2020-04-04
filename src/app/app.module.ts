@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ClientloginComponent } from './clientlogin/clientlogin.component';
 //import statement
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +23,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -48,6 +50,16 @@ import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay
 import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.component';
 import { ServiceimagesComponent } from './serviceimages/serviceimages.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { OrdersComponent } from './orders/orders.component';
+import { OrdersassignedComponent } from './orders/ordersassigned/ordersassigned.component';
+import { OrdersnotassignedComponent } from './orders/ordersnotassigned/ordersnotassigned.component';
+import { OrderspastComponent } from './orders/orderspast/orderspast.component';
+import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
+import { AssigndboydialogComponent } from "./orders/ordersnotassigned/ordersnotassigned.component";
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 
@@ -75,7 +87,14 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     ServiceComponent,
     ServicedisplayComponent,
     ServiceupdateComponent,
-    ServiceimagesComponent
+    ServiceimagesComponent,
+    OrdersComponent,
+    OrdersassignedComponent,
+    OrdersnotassignedComponent,
+    OrderspastComponent,
+    DeliveryboyComponent,
+    AssigndboydialogComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -101,14 +120,17 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatTreeModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatDialogModule,
     MatRadioModule,
     MatTooltipModule,
-    MatCarouselModule.forRoot()
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatCarouselModule.forRoot(),
+    MatGridListModule,
+    MatMenuModule,
 
   ],
   providers: [],
-  entryComponents:[
+  entryComponents: [
     ProductmoreinfoComponent,
     AddpromodialogComponent,
     trainermoreinfocomponent

@@ -1,0 +1,13 @@
+
+<nav mat-tab-nav-bar mat-align-tabs="center">
+
+	<a mat-tab-link routerLink="/nav/orders/ordersassigned" routerLinkActive #ordersAssigned="routerLinkActive" [active]="ordersAssigned.isActive">
+		Assigned Orders
+	</a>
+	<a mat-tab-link routerLink="/nav/orders/ordersnotassigned" routerLinkActive #ordersNotAssigned="routerLinkActive" [active]="ordersNotAssigned.isActive">Not Assigned Orders</a>
+
+	<a mat-tab-link routerLink="/nav/orders/orderspast" routerLinkActive #ordersPast="routerLinkActive" [active]="ordersPast.isActive">Past Orders</a>
+
+</nav>
+
+<router-outlet></router-outlet>

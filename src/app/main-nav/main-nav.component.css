@@ -22,16 +22,15 @@
 
 .mat-list-item {
   background-color: transparent;
-  border-radius: 4px;
   width: 80%;
 }
 
-p {
+/* p {
   font-weight: 500;
   font-size: larger;
-  /* margin-left: 25px; */
+
   color: #302729;
-}
+} */
 
 .mat-icon {
   color: #302729;
@@ -45,6 +44,10 @@ p {
   width: 230px;
   background: #fff;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.active-link {
+  background-color: rgb(58, 240, 152);
 }
 
 

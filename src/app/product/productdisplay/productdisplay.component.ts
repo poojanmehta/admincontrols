@@ -21,6 +21,8 @@ export class ProductdisplayComponent implements OnInit {
 
   constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog,
     private _catdata: CategorydataService) { }
+
+
   diaplayedColumns: string[] = ['check', 'name', 'price', 'stock', 'action'];
   dataSource = new MatTableDataSource<product>();
   checkarr: number[] = [];

@@ -1,0 +1,50 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="db_id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.db_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="db_name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.db_name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="db_contact">
+      <th mat-header-cell *matHeaderCellDef> Contact </th>
+      <td mat-cell *matCellDef="let element"> {{element.db_contact}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)=onDelete(element) matTooltip="Delete this product">
+          <mat-icon class="delete">delete_outlined</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+
+
+
+<br><br><br>
+
+<div class="container">
+  <h1 class="mat-h1">Delivery Boy Add</h1>
+  <form [formGroup]="dboyform" (ngSubmit)="onAdd()">
+    <mat-form-field>
+      <input matInput type="text" formControlName="db_name" placeholder="Delivery Boy Name">
+      <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="db_contact" placeholder="Contact Number">
+      <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="dboyform.invalid">Add New
+      Delivery Boy</button>
+  </form>
+</div>

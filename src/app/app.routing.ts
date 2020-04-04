@@ -19,6 +19,13 @@ import { ServiceComponent } from './service/service.component';
 import { ServicedisplayComponent } from './service/servicedisplay/servicedisplay.component';
 import { ServiceupdateComponent } from './service/serviceupdate/serviceupdate.component';
 import { ServiceimagesComponent } from './serviceimages/serviceimages.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrdersassignedComponent } from './orders/ordersassigned/ordersassigned.component';
+import { OrdersnotassignedComponent } from './orders/ordersnotassigned/ordersnotassigned.component';
+import { OrderspastComponent } from './orders/orderspast/orderspast.component';
+import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const arr: Routes = [
 
@@ -31,6 +38,7 @@ const arr: Routes = [
       { path: 'productadd', component: ProductComponent },
       { path: 'productupdate/:p_id', component: ProductupdateComponent },
       { path: 'category', component: CategoryComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'trainer', component: TrainerComponent },
       { path: 'trainerdisplay', component: TrainerdisplayComponent },
       { path: 'trainerupdate/:t_id', component: TrainerupdateComponent },
@@ -41,7 +49,15 @@ const arr: Routes = [
       { path: 'servicedisplay', component: ServicedisplayComponent },
       { path: 'serviceupdate/:s_id', component: ServiceupdateComponent },
       { path: 'serviceimages', component: ServiceimagesComponent },
+      { path: 'deliveryboy', component: DeliveryboyComponent },
       { path: 'serviceimages/:s_id', component: ServiceimagesComponent },
+      {
+        path: 'orders', component: OrdersComponent, children: [
+          { path: 'ordersassigned', component: OrdersassignedComponent },
+          { path: 'ordersnotassigned', component: OrdersnotassignedComponent },
+          { path: 'orderspast', component: OrderspastComponent }
+        ]
+      },
     ]
   },
   { path: '**', component: PagenotfoundComponent }
