@@ -1,0 +1,50 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="s_name">
+      <th mat-header-cell *matHeaderCellDef> Service Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.s_name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="c_name">
+      <th mat-header-cell *matHeaderCellDef> Client Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.c_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="trainer">
+      <th mat-header-cell *matHeaderCellDef> Assigned Trainer </th>
+      <td mat-cell *matCellDef="let element"> <p *ngIf="element.fk_t_id">{{element.fk_t_id}}</p>
+        <button mat-button color="primary" *ngIf="element.fk_t_id==null" (click)="assign(element)">Assign</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.sp_pur_date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="disc_price">
+      <th mat-header-cell *matHeaderCellDef> Discounted Priice </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_disc_price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <button mat-icon-button (click)="moreInfo(element)" matTooltip="Show information">
+          <mat-icon>info</mat-icon>
+        </button> -->
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: diaplayedColumns;" [style.background-color]="row.expiry">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<button (click)="checkDate()"></button>

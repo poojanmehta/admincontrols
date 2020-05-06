@@ -59,6 +59,7 @@ import { AssigndboydialogComponent } from "./orders/ordersnotassigned/ordersnota
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
 
 
 
@@ -95,7 +96,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     OrderspastComponent,
     DeliveryboyComponent,
     AssigndboydialogComponent,
-    DashboardComponent
+    DashboardComponent,
+    PurchasedserviceComponent
   ],
   imports: [
     BrowserModule,

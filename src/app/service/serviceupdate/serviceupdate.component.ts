@@ -51,7 +51,7 @@ export class ServiceupdateComponent implements OnInit {
             for (const item of this.imageArr) {
               let temp = this.imageUrl + 'images/service_images/' + item.image;
               this.slide.push(temp);
-              console.log(this.slide)
+              console.log(this.slide);
             }
           }
         );

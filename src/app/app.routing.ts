@@ -25,6 +25,7 @@ import { OrdersnotassignedComponent } from './orders/ordersnotassigned/ordersnot
 import { OrderspastComponent } from './orders/orderspast/orderspast.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
 
 
 const arr: Routes = [
@@ -51,6 +52,7 @@ const arr: Routes = [
       { path: 'serviceimages', component: ServiceimagesComponent },
       { path: 'deliveryboy', component: DeliveryboyComponent },
       { path: 'serviceimages/:s_id', component: ServiceimagesComponent },
+      { path: 'purchasedservice', component: PurchasedserviceComponent },
       {
         path: 'orders', component: OrdersComponent, children: [
           { path: 'ordersassigned', component: OrdersassignedComponent },
