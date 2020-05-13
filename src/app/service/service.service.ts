@@ -9,11 +9,12 @@ export class ServiceService {
 
   constructor(private _http: HttpClient) { }
   private url: string = environment.url + "service/";
+  private url2: string = environment.url + "image/";
   getAllServices() {
     return this._http.get
-    (this.url);
+      (this.url);
   }
-   addService(obj: any) {
+  addService(obj: FormData) {
     return this._http.post(this.url, obj);
   }
   getServiceByID(s_id) {
@@ -27,5 +28,8 @@ export class ServiceService {
     console.log(body);
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url, body, { headers: head });
+  }
+  updateCoverImg(obj: FormData, s_id: number) {
+    return this._http.put(this.url2 + s_id, obj);
   }
 }

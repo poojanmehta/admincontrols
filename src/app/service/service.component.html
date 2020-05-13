@@ -18,10 +18,13 @@
       <textarea matInput rows="3" formControlName="s_disc" placeholder="Service discription"></textarea>
     </mat-form-field>
     <br>
+    <input type="file" formControlName="s_cover_img" (change)="onChange($event)">
+    <br>
     <mat-form-field>
       <textarea matInput rows="3" formControlName="s_ben" placeholder="Service Benifits"></textarea>
     </mat-form-field>
     <br>
+
     <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="serviceForm.invalid">Add New Services</button>
   </form>
 </div>

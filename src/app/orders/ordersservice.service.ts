@@ -23,12 +23,12 @@ export class OrdersserviceService {
   getAllAssignedOrders() {
     return this._http.get(this.url3);
   }
-  assignDeliveryboy(obj:any) {
+  assignDeliveryboy(obj: any) {
     const body = JSON.stringify(obj);
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url2, body, { headers: head });
   }
-  updateStatus(obj:any) {
+  updateStatus(obj: any) {
     const body = JSON.stringify(obj);
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url3, body, { headers: head });
