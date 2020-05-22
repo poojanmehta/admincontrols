@@ -15,6 +15,8 @@ export class ServiceComponent implements OnInit {
     private _router: Router) { }
 
   serviceForm: FormGroup;
+  selectedFile: File = null;
+
 
   ngOnInit(): void {
     this.serviceForm = this.fb.group({
@@ -22,18 +24,36 @@ export class ServiceComponent implements OnInit {
       s_price: new FormControl(null, [Validators.required]),
       s_dur: new FormControl(null, [Validators.required]),
       s_disc: new FormControl(null, [Validators.required]),
-      s_ben: new FormControl(null, [Validators.required])
+      s_ben: new FormControl(null, [Validators.required]),
+      s_cover_img: new FormControl(null)
     })
 
 
   }
 
   onAddService() {
-    this._servicedata.addService(this.serviceForm.value).subscribe(
+
+    let fd = new FormData();
+    fd.append('s_name', this.serviceForm.value.s_name);
+    fd.append('s_price', this.serviceForm.value.s_price);
+    fd.append('s_dur', this.serviceForm.value.s_dur);
+    fd.append('s_disc', this.serviceForm.value.s_disc);
+    fd.append('s_ben', this.serviceForm.value.s_ben);
+    if (this.selectedFile != null) {
+      fd.append('image', this.selectedFile, this.selectedFile.name);
+    } else {
+      fd.append('image', new Blob(), null);
+    }
+
+    this._servicedata.addService(fd).subscribe(
       (data: any[]) => {
         console.log('Service added');
         this._router.navigate(['/nav/servicedisplay']);
       }
     );
+  }
+
+  onChange(f) {
+    this.selectedFile = <File>f.target.files[0];
   }
 }

@@ -19,7 +19,8 @@ import { ProductdataService } from '../productdata.service';
 })
 export class ProductdisplayComponent implements OnInit {
 
-  constructor(private _router: Router, private _data: ProductdataService, public _dialog: MatDialog,
+  constructor(private _router: Router, private
+     _data: ProductdataService, public _dialog: MatDialog,
     private _catdata: CategorydataService) { }
 
 

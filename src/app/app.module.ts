@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ClientloginComponent } from './clientlogin/clientlogin.component';
+import { AssigntrainerComponent } from './purchasedservice/purchasedservice.component';
 //import statement
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -60,6 +61,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
+import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
+
 
 
 
@@ -96,7 +99,9 @@ import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
     DeliveryboyComponent,
     AssigndboydialogComponent,
     DashboardComponent,
-    OrderdetailsComponent
+    OrderdetailsComponent,
+    PurchasedserviceComponent,
+    AssigntrainerComponent
   ],
   imports: [
     BrowserModule,

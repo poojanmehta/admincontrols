@@ -25,6 +25,14 @@
   <button class="mainbutton" type="submit" mat-raised-button color="primary">Update Service Details</button>
 </form>
 
+<form class="container">
+  <h2>Update Cover Image</h2>
+<input type="file" (change)="onChange($event)">
+<br>
+<br>
+<button mat-button (click)="updateCoverImg()" color="primary">Update</button>
+</form>
+
 <div class="container">
  <h2 style="width: 50%;float: left;">Update Service Images</h2>
  <button class="mainbutton" mat-raised-button color="primary"

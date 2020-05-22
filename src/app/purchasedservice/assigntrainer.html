@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Choose Dileveryboy</mat-label>
+    <mat-select [(value)]="data.t_id">
+      <mat-option *ngFor="let item of trainerArr" [value]="item.t_id">
+        {{item.t_id}}&nbsp;&nbsp;{{item.t_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.t_id" cdkFocusInitial>Ok</button>
+</div>

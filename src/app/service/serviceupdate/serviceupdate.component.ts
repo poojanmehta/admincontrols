@@ -22,6 +22,8 @@ export class ServiceupdateComponent implements OnInit {
   imageUrl: string = environment.url;
   slide: string[] = [];
   selectedImage: serviceimage;
+  selectedFile: File = null;
+
 
   constructor(private _data: ServiceService,
     private _imagedata: ImagedataserviceService,
@@ -51,7 +53,7 @@ export class ServiceupdateComponent implements OnInit {
             for (const item of this.imageArr) {
               let temp = this.imageUrl + 'images/service_images/' + item.image;
               this.slide.push(temp);
-              console.log(this.slide)
+              console.log(this.slide);
             }
           }
         );
@@ -88,6 +90,24 @@ export class ServiceupdateComponent implements OnInit {
         console.log(data);
         this.imageArr.splice(this.imageArr.indexOf(image), 1);
       }
-    )
+    );
+  }
+
+  updateCoverImg() {
+    let fd = new FormData();
+    if (this.selectedFile != null) {
+      fd.append('image', this.selectedFile, this.selectedFile.name);
+    }
+    else {
+      fd.append('image', new Blob(), null);
+    }
+    this._data.updateCoverImg(fd, this.s_id).subscribe(
+      (data: any) => {
+        alert('Cover image updated');
+      }
+    );
+  }
+  onChange(f) {
+    this.selectedFile = <File>f.target.files[0];
   }
 }
