@@ -13,6 +13,10 @@
       <th mat-header-cell *matHeaderCellDef> Contact </th>
       <td mat-cell *matCellDef="let element"> {{element.db_contact}} </td>
     </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.db_email}} </td>
+    </ng-container>
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
@@ -41,7 +45,11 @@
       <mat-error>This field is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" formControlName="db_contact" placeholder="Contact Number">
+      <input matInput type="number" formControlName="db_contact" placeholder="Contact Number (Mobile Number)">
+      <mat-error>This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="db_email" placeholder="Email">
       <mat-error>This field is required</mat-error>
     </mat-form-field>
     <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="dboyform.invalid">Add New
