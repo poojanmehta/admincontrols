@@ -10,7 +10,7 @@ export class DeliveryboyService {
   constructor(private _http: HttpClient) { }
   private url: string = environment.url + "deliveryboy/";
 
-  addDboy(item: any[]) {
+  addDboy(item: FormData) {
     const body = JSON.stringify(item);
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.post(this.url, body, { headers: head });
@@ -24,4 +24,14 @@ export class DeliveryboyService {
   getAllDataById(db_id: number) {
     return this._http.get(this.url + db_id);
   }
+  updateImage(db_id, obj: FormData) {
+    return this._http.put(this.url + db_id, obj);
+  }
+  updateDelieryBoy(obj) {
+    console.log(obj);
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.put(this.url, body, { headers: head });
+  }
 }
+

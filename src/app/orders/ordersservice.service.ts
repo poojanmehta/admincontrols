@@ -33,4 +33,8 @@ export class OrdersserviceService {
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url3, body, { headers: head });
   }
+  getOrderDetails(fk_order_id: number) {
+    return this._http.get(this.url + fk_order_id);
+  }
+
 }
