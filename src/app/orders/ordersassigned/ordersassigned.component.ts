@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { OrdersserviceService } from '../ordersservice.service';
 import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ordersassigned',
   templateUrl: './ordersassigned.component.html',
@@ -11,9 +12,10 @@ import { formatDate } from '@angular/common';
 })
 export class OrdersassignedComponent implements OnInit {
 
-  constructor(private _orderdata: OrdersserviceService) { }
+  constructor(private _orderdata: OrdersserviceService,
+    private _router:Router) { }
 
-  diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'dd_id']
+  diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'action','details']
   dataSource = new MatTableDataSource<any>();
   ordersArr: any[] = [];
 
@@ -30,7 +32,9 @@ export class OrdersassignedComponent implements OnInit {
       }
     );
   }
-
+  onDetails(item){
+    this._router.navigate(['nav/orderdetails',item.order_id]);
+  }
   update(order) {
     console.log(order.dd_id);
     if (confirm('Are you sure? you are updating status')) {

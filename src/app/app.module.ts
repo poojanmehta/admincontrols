@@ -60,6 +60,7 @@ import { AssigndboydialogComponent } from "./orders/ordersnotassigned/ordersnota
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
 import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
 
@@ -99,6 +100,7 @@ import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.comp
     DeliveryboyComponent,
     AssigndboydialogComponent,
     DashboardComponent,
+    OrderdetailsComponent,
     PurchasedserviceComponent,
     AssigntrainerComponent,
     DeliveryboypageComponent

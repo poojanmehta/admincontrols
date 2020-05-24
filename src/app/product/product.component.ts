@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   constructor(private _productdata: ProductdataService,
     private _fb: FormBuilder,
     private _catdata: CategorydataService,
-    private _router: Router ) { }
+    private _router: Router) { }
 
   selectedFile: File = null;
   cat: category[] = [];
@@ -31,12 +31,12 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.productform = this._fb.group({
       p_name: new FormControl(null, [Validators.required]),
-      p_price: new FormControl(null, [Validators.required , Validators.pattern('[0-9]*'), Validators.maxLength(10)]),
+      p_price: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*'), Validators.maxLength(10)]),
       p_dis: new FormControl(null, [Validators.required]),
-      fk_sct_id: new FormControl(null,[Validators.required]),
-      p_qty: new FormControl(null, [Validators.required]),
-      p_unit: new FormControl(null),
-      p_stock: new FormControl(null),
+      fk_sct_id: new FormControl(null, [Validators.required]),
+      p_qty: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.pattern('[0-9]*')]),
+      p_unit: new FormControl(null, [Validators.required]),
+      p_stock: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*')]),
       p_ben: this._fb.array([this.newBenifit()]),
       p_usage: new FormControl(null),
       p_img: new FormControl(null),
@@ -50,15 +50,15 @@ export class ProductComponent implements OnInit {
     );
   }
   onAdd() {
-    for (let n = 0; n <= this.i; n++){
+    for (let n = 0; n <= this.i; n++) {
       if (n == 0) {
-        if(this.productform.value.p_ben[n].new_ben != null){
-        this.benifits = this.productform.value.p_ben[n].new_ben;
+        if (this.productform.value.p_ben[n].new_ben != null) {
+          this.benifits = this.productform.value.p_ben[n].new_ben;
         }
       }
       else {
-        if(this.productform.value.p_ben[n].new_ben != null){
-        this.benifits = this.benifits + '/' + this.productform.value.p_ben[n].new_ben;
+        if (this.productform.value.p_ben[n].new_ben != null) {
+          this.benifits = this.benifits + '/' + this.productform.value.p_ben[n].new_ben;
         }
         console.log(this.productform.value.p_ben[n].new_ben)
         console.log(this.benifits);
@@ -94,7 +94,7 @@ export class ProductComponent implements OnInit {
   }
   newBenifit(): FormGroup {
     return this._fb.group({
-      new_ben: new FormControl(null,[Validators.required])
+      new_ben: new FormControl(null, [Validators.required])
     });
   }
   newControl() {

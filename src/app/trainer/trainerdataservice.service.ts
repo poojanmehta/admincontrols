@@ -17,12 +17,13 @@ export class TrainerdataserviceService {
   deleteTrainer(t_id) {
     return this._http.delete(this.url + t_id)
   }
-  updateImage(t_id, obj: FormData) {
-    return this._http.put(this.url + t_id, obj);
-  }
 
   getTrainerById(t_id) {
     return this._http.get(this.url + t_id);
+  }
+
+updateImage(t_id, obj: FormData) {
+    return this._http.put(this.url + t_id, obj);
   }
 
   updateTrainer(obj) {

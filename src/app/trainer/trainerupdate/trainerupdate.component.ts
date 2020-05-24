@@ -52,7 +52,8 @@ export class TrainerupdateComponent implements OnInit {
   onUpdate() {
     this._data.updateTrainer(this.updateform.value).subscribe(
       (data: any[]) => {
-        console.log(data)
+        console.log(data);
+        alert("are you sure you want to update?");
         this._router.navigate(['/nav/trainerdisplay']);
       }
     );
@@ -64,8 +65,8 @@ export class TrainerupdateComponent implements OnInit {
     updateImage(){
      this._data.updateImage(this.data2.t_id,this.fd).subscribe(
        (data:any) => {
-         console.log('image updated');
-       }
+         alert('image updated');
+        }
     );
  }
 }

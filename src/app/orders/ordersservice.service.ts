@@ -7,9 +7,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrdersserviceService {
-  private url: string = environment.url + 'order/';
-  private url2: string = environment.url + 'ordersnotassigned/';
-  private url3: string = environment.url + 'ordersassigned/';
+  url: string = environment.url + 'order/';
+  url2: string = environment.url + 'ordersnotassigned/';
+  url3: string = environment.url + 'ordersassigned/';
+  url4: string = environment.url + 'userhistory/';
+
 
   constructor(private _router: Router,
     private _http: HttpClient) { }
@@ -33,4 +35,8 @@ export class OrdersserviceService {
     const head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.put(this.url3, body, { headers: head });
   }
+  getOrderDetails(fk_order_id: number) {
+    return this._http.get(this.url4 + fk_order_id);
+  }
+
 }
