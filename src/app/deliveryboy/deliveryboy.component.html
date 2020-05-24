@@ -1,7 +1,7 @@
-<!-- <div class="mat-elevation-z8"> -->
-  <!-- <table mat-table [dataSource]="dataSource"> -->
-   <!-- Position Column -->
-    <!-- <ng-container matColumnDef="db_id">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="db_id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.db_id}} </td>
     </ng-container>
@@ -35,9 +35,9 @@
 
 
 
-<br><br><br> -->
+<br><br><br>
 
-<!-- <div class="container">
+<div class="container">
   <h1 class="mat-h1">Delivery Boy Add</h1>
   <form [formGroup]="dboyform" (ngSubmit)="onAdd()">
     <mat-form-field>
@@ -55,50 +55,4 @@
     <button type="submit" class="mainbutton" mat-raised-button color="primary" [disabled]="dboyform.invalid">Add New
       Delivery Boy</button>
   </form>
-</div>  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-  <h1>DeliveryBoy Details</h1>
-  <form [formGroup]="dboyform" (ngSubmit)="onAdd()">
-    <mat-form-field>
-      <input matInput type="text" formControlName="db_name" placeholder="trainer Name">
-      <mat-error *ngIf="dboyform.get('db_name').hasError('required') && dboyform.get('db_name').dirty" >Name is required</mat-error>
- </mat-form-field><br>
-    <label id="example-radio-group-label">Select Gender</label>
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="db_gen">
-      <mat-radio-button class="example-radio-button" *ngFor="let gen of gender" [value]="gen">
-        {{gen}}
-      </mat-radio-button>
-    </mat-radio-group>
-    <br>
-    <!-- <mat-form-field>
-      <input matInput type="date" size=10 formControlName="t_dob" placeholder="date of birth">
-    </mat-form-field><br> -->
-    <mat-form-field>
-      <input matInput type="text" formControlName="db_contact" placeholder="contact">
-      <mat-error *ngIf="dboyform.get('db_contact').hasError('required') && dboyform.get('db_contact').dirty" >Mobile Number is required</mat-error>
-      <mat-error *ngIf="dboyform.get('db_contact').hasError('maxlength')" >only 10 digits</mat-error>
-      <mat-error *ngIf="dboyform.get('db_contact').hasError('pattern') " > Only digits</mat-error>
-    </mat-form-field><br>
-     <input type="file" formControlName="db_img" (change)="onChange($event)">
-   <br>
-
-    <button class="mainbutton" type="submit" mat-raised-button color="primary" [disabled]="dboyform.invalid">Add New DeliveryBoy</button>
-  </form>
-
-
+</div>

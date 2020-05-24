@@ -9,7 +9,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class OrdersserviceService {
   url: string = environment.url + 'order/';
   url2: string = environment.url + 'ordersnotassigned/';
-  url3: string = environment.url + 'ordersassigned/'
+  url3: string = environment.url + 'ordersassigned/';
+  url4: string = environment.url + 'userhistory/';
+
 
   constructor(private _router: Router,
     private _http: HttpClient) { }
@@ -34,7 +36,7 @@ export class OrdersserviceService {
     return this._http.put(this.url3, body, { headers: head });
   }
   getOrderDetails(fk_order_id: number) {
-    return this._http.get(this.url + fk_order_id);
+    return this._http.get(this.url4 + fk_order_id);
   }
 
 }
