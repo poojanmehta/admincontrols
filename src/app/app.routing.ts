@@ -26,6 +26,8 @@ import { OrderspastComponent } from './orders/orderspast/orderspast.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
+import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
+import { DeliveryboyauthguardService } from './deliveryboyauthguard.service';
 
 
 const arr: Routes = [
@@ -62,6 +64,7 @@ const arr: Routes = [
       },
     ]
   },
+  { path: 'delivery/:db_id', component: DeliveryboypageComponent, canActivate: [DeliveryboyauthguardService] },
   { path: '**', component: PagenotfoundComponent }
 ];
 

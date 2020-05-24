@@ -24,4 +24,9 @@ export class DeliveryboyService {
   getAllDataById(db_id: number) {
     return this._http.get(this.url + db_id);
   }
+  checkDboyLogin(obj: any) {
+    const body = JSON.stringify(obj);
+    const head = new HttpHeaders().set(environment.header, environment.value);
+    return this._http.post(this.url + 'login', body, { headers: head });
+  }
 }

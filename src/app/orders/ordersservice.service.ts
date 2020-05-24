@@ -7,9 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrdersserviceService {
-  url: string = environment.url + 'order/';
-  url2: string = environment.url + 'ordersnotassigned/';
-  url3: string = environment.url + 'ordersassigned/'
+  private url: string = environment.url + 'order/';
+  private url2: string = environment.url + 'ordersnotassigned/';
+  private url3: string = environment.url + 'ordersassigned/';
 
   constructor(private _router: Router,
     private _http: HttpClient) { }

@@ -1,0 +1,19 @@
+<mat-card class="order-card" *ngFor="let order of orders">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{order.c_name}}</mat-card-title>
+    <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    <h4>Adress</h4>
+    <p>{{order.address}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="mainbutton" mat-raised-button color="primary" (click)="updateStatus(order)">UPDATE</button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="noOrders"><p>
+  You have no pending orders
+</p></div>

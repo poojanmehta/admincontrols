@@ -61,6 +61,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
+import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
 
 
 
@@ -99,7 +100,8 @@ import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.c
     AssigndboydialogComponent,
     DashboardComponent,
     PurchasedserviceComponent,
-    AssigntrainerComponent
+    AssigntrainerComponent,
+    DeliveryboypageComponent
   ],
   imports: [
     BrowserModule,
