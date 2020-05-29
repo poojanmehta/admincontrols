@@ -36,8 +36,7 @@ export class ClientloginComponent implements OnInit {
           if (x.length == 1) {
             localStorage.setItem('c_email', this.loginForm.get('c_email').value);
             this._route.navigate(['/nav/product']);
-          }
-          else {
+          } else {
             alert('invalid');
           }
         }

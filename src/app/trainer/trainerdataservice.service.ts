@@ -22,7 +22,7 @@ export class TrainerdataserviceService {
     return this._http.get(this.url + t_id);
   }
 
-updateImage(t_id, obj: FormData) {
+  updateImage(t_id, obj: FormData) {
     return this._http.put(this.url + t_id, obj);
   }
 

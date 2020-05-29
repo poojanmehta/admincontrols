@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TrainerdataserviceService } from '../trainerdataservice.service';
 import { trainer } from '../trainer';
-import { environment  } from "../../../environments/environment";
+import { environment } from "../../../environments/environment";
 @Component({
   selector: 'app-trainermoreinfo',
   templateUrl: './trainermoreinfo.component.html',
@@ -13,9 +13,9 @@ export class trainermoreinfocomponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public info) { }
 
-    data: trainer;
-    TrainerImgPath: string;
-    ImagePath: string = environment.url +"images/trainer_images/" ;
+  data: trainer;
+  TrainerImgPath: string;
+  ImagePath: string = environment.url + "images/trainer_images/";
 
   ngOnInit() {
     this._data.getTrainerById(this.info.tid).subscribe((data2: trainer[]) => {

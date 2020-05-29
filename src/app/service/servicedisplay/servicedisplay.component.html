@@ -1,4 +1,4 @@
-  <div class="mat-elevation-z8">
+<div class="mat-elevation-z8">
   <table mat-table [dataSource]="datasource">
     <!-- Position Column -->
     <ng-container matColumnDef="name">
@@ -42,9 +42,9 @@
         <!-- <button mat-icon-button (click)="moreInfo(element)">
         <mat-icon>info</mat-icon>
       </button>-->
-      <button mat-icon-button (click)=onUpdate(element)>
-        <mat-icon class="update">open_in_new</mat-icon>
-      </button>
+        <button mat-icon-button (click)=onUpdate(element)>
+          <mat-icon class="update">open_in_new</mat-icon>
+        </button>
         <button mat-icon-button (click)=onDelete(element)>
           <mat-icon class="delete">delete_outlined</mat-icon>
         </button>
@@ -59,6 +59,10 @@
 </div>
 
 
-<button mat-raised-button class="button" (click)="onAdd()">
+<!-- <button mat-raised-button class="button" (click)="onAdd()">
   <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Services
+</button> -->
+
+<button mat-raised-button class="button" (click)="onAdd()">
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Trainer
 </button>

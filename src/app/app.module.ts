@@ -63,6 +63,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
 import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 
 
@@ -136,6 +140,7 @@ import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.comp
     MatCarouselModule.forRoot(),
     MatGridListModule,
     MatMenuModule,
+    ChartsModule,
 
   ],
   providers: [],

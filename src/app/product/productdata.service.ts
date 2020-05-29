@@ -42,7 +42,8 @@ export class ProductdataService {
   }
   deletePromo(obj) {
     const body = JSON.stringify(obj);
+    console.log(body);
     const head = new HttpHeaders().set(environment.header, environment.value);
-    return this._http.post(this.url2+1, body, { headers: head });
+    return this._http.post(this.url2 + 1, body, { headers: head });
   }
 }
