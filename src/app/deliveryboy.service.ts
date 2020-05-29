@@ -24,14 +24,10 @@ export class DeliveryboyService {
   getAllDataById(db_id: number) {
     return this._http.get(this.url + db_id);
   }
-  updateImage(db_id, obj: FormData) {
-    return this._http.put(this.url + db_id, obj);
-  }
-  updateDelieryBoy(obj) {
-    console.log(obj);
+  checkDboyLogin(obj: any) {
     const body = JSON.stringify(obj);
     const head = new HttpHeaders().set(environment.header, environment.value);
-    return this._http.put(this.url, body, { headers: head });
+    return this._http.post(this.url + 'login', body, { headers: head });
   }
 }
 

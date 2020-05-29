@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { order } from '../order';
 import { OrdersserviceService } from '../ordersservice.service';
+import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-ordersassigned',
@@ -38,8 +38,11 @@ export class OrdersassignedComponent implements OnInit {
   update(order) {
     console.log(order.dd_id);
     if (confirm('Are you sure? you are updating status')) {
+      let date = formatDate(new Date(), 'dd/MM/yyyy', 'en');
       const obj = {
-        dd_id: order.dd_id
+        dd_id: order.dd_id,
+        completion_date: date
+
       };
       this._orderdata.updateStatus(obj).subscribe(
         (data: any) => {

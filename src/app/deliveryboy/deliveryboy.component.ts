@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deliveryboy',
@@ -14,9 +15,10 @@ import { MatTableDataSource } from '@angular/material/table';
 export class DeliveryboyComponent implements OnInit {
 
   constructor(private _dboydata: DeliveryboyService,
-    private _fb: FormBuilder) { }
+    private _fb: FormBuilder,
+    private _route: Router) { }
 
-  diaplayedColumns: string[] = ['db_id', 'db_name', 'db_contact', 'email', 'action'];
+  diaplayedColumns: string[] = ['db_id', 'db_name', 'db_contact', 'email', 'db_password', 'action'];
   dataSource = new MatTableDataSource<dboy>();
   dboyform: FormGroup;
   dboyArr: dboy[] = [];
@@ -35,7 +37,8 @@ export class DeliveryboyComponent implements OnInit {
     this.dboyform = this._fb.group({
       db_name: new FormControl(null, [Validators.required]),
       db_contact: new FormControl(null, [Validators.required]),
-      db_email: new FormControl(null, [Validators.email, Validators.required])
+      db_email: new FormControl(null, [Validators.email, Validators.required]),
+      db_password: new FormControl(null, [Validators.required])
     });
   }
 
@@ -59,5 +62,9 @@ export class DeliveryboyComponent implements OnInit {
         this.dataSource.data = this.dboyArr;
       }
     );
+  }
+
+  onViewOrders(item: dboy) {
+    this._route.navigate(['/delivery', item.db_id]);
   }
 }

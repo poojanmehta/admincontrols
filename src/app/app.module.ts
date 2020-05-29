@@ -62,6 +62,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
+import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 
 
@@ -101,7 +106,8 @@ import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.c
     DashboardComponent,
     OrderdetailsComponent,
     PurchasedserviceComponent,
-    AssigntrainerComponent
+    AssigntrainerComponent,
+    DeliveryboypageComponent
   ],
   imports: [
     BrowserModule,
@@ -134,6 +140,7 @@ import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.c
     MatCarouselModule.forRoot(),
     MatGridListModule,
     MatMenuModule,
+    ChartsModule,
 
   ],
   providers: [],
