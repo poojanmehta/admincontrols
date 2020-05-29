@@ -6,6 +6,7 @@ import { OrdersserviceService } from '../ordersservice.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DeliveryboyService } from 'src/app/deliveryboy.service';
 import { dboy } from 'src/app/deliveryboy/deliveryboy';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordersnotassigned',
@@ -15,11 +16,13 @@ import { dboy } from 'src/app/deliveryboy/deliveryboy';
 export class OrdersnotassignedComponent implements OnInit {
 
 
+
   constructor(private orderdata: OrdersserviceService,
     public _dialog: MatDialog,
-    private _orderdata: OrdersserviceService) { }
+    private _orderdata: OrdersserviceService,
+    private _router:Router) { }
 
-  diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'dd_id']
+  diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'Action']
   dataSource = new MatTableDataSource<any>();
   ordersArr: any[] = [];
   db_id: number;
@@ -36,6 +39,9 @@ export class OrdersnotassignedComponent implements OnInit {
         console.log(data);
       }
     );
+  }
+  onDetails(item){
+    this._router.navigate(['nav/orderdetails',item.order_id]);
   }
 
   assign(order) {

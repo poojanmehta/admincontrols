@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { order } from '../order';
 import { OrdersserviceService } from '../ordersservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orderspast',
@@ -12,9 +13,10 @@ import { OrdersserviceService } from '../ordersservice.service';
 })
 export class OrderspastComponent implements OnInit {
 
-  constructor(private orderdata: OrdersserviceService) { }
+  constructor(private orderdata: OrdersserviceService,
+    private _router:Router) { }
 
-  diaplayedColumns: string[] = ['order_id','order_date','pay_type','c_name','pro_disc','dd_id']
+  diaplayedColumns: string[] = ['order_id','order_date','pay_type','c_name','pro_disc','Action']
   dataSource = new MatTableDataSource<any>();
   ordersArr: any[] = [];
 
@@ -31,5 +33,7 @@ export class OrderspastComponent implements OnInit {
       }
     );
   }
-
+  onDetails(item){
+    this._router.navigate(['nav/orderdetails',item.order_id]);
+  }
 }
