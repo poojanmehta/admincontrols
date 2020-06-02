@@ -17,44 +17,44 @@ export class DashboardComponent implements OnInit {
 
   chartBySubCategory: donutCategoryChart[] = [];
   /** Based on the screen size, switch from standard to one column per row */
-  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-  //   map(({ matches }) => {
-  //     if (matches) {
-  //       return [
-  //         { title: 'Card 1', cols: 1, rows: 1 },
-  //         { title: 'Card 2', cols: 1, rows: 1 },
-  //         // { title: 'Card 3', cols: 1, rows: 1 },
-  //         // { title: 'Card 4', cols: 1, rows: 1 }
-  //       ];
-  //     }
+  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map(({ matches }) => {
+      if (matches) {
+        return [
+          { title: 'Card 1', cols: 1, rows: 1 },
+          { title: 'Card 2', cols: 1, rows: 1 },
+          // { title: 'Card 3', cols: 1, rows: 1 },
+          // { title: 'Card 4', cols: 1, rows: 1 }
+        ];
+      }
 
-  //     return [
-  //       { title: 'Card 1', cols: 2, rows: 1 },
-  //       { title: 'Card 2', cols: 1, rows: 1 },
-  //       // { title: 'Card 3', cols: 1, rows: 2 },
-  //       // { title: 'Card 4', cols: 1, rows: 1 }
-  //     ];
-  //   })
-  // );
+      return [
+        { title: 'Card 1', cols: 2, rows: 1 },
+        { title: 'Card 2', cols: 1, rows: 1 },
+        // { title: 'Card 3', cols: 1, rows: 2 },
+        // { title: 'Card 4', cols: 1, rows: 1 }
+      ];
+    })
+  );
 
   constructor(private breakpointObserver: BreakpointObserver,
     private _dashboard: DashbordserviceService) { }
 
   ngOnInit(): void {
-    this._dashboard.orderBySubCategory().subscribe(
-      (data: any[]) => {
+    // this._dashboard.orderBySubCategory().subscribe(
+    //   (data: any[]) => {
 
-        console.log(data);
-        // this.chartBySubCategory = data;
-        for (const item of data) {
-          this.chartBySubCategory.push(
-            new donutCategoryChart(
-              item.fk_sct_id,
-              item.p_name
-            )
-          );
-        }
-      }
-    )
+    //     console.log(data);
+    //     // this.chartBySubCategory = data;
+    //     for (const item of data) {
+    //       this.chartBySubCategory.push(
+    //         new donutCategoryChart(
+    //           item.fk_sct_id,
+    //           item.p_name
+    //         )
+    //       );
+    //     }
+    //   }
+    // )
   }
 }
