@@ -60,6 +60,26 @@ export class OrdersnotassignedComponent implements OnInit {
           (data: any) => {
             console.log(data);
             alert('Deliveryboy assigned successfully');
+            const mailObj = {
+              message: 'Hello your Order is Shipped Order ID : ',
+              receiver: localStorage.getItem('c_email')
+            };
+            const mailObjTOdboy = {
+              message: ' you have new Order to be Shipped Please Check Details in Website Order ID : ',
+              receiver: localStorage.getItem('c_email')
+            };
+            this._orderdata.sendShipmentMailDboy(mailObjTOdboy).subscribe(
+              (data:any[])=>{
+                console.log(data);
+              }
+            )
+
+            this._orderdata.sendShipmentMailClient(mailObj).subscribe(
+              (data:any[])=>{
+                console.log(data);
+              }
+            )
+
             this.ordersArr.splice(this.ordersArr.indexOf(order), 1);
             this.dataSource.data = this.ordersArr;
           }

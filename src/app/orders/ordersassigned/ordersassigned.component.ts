@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class OrdersassignedComponent implements OnInit {
 
   constructor(private _orderdata: OrdersserviceService,
-    private _router:Router) { }
+    private _router:Router,
+    private _order:OrdersserviceService) { }
 
   diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'action','details']
   dataSource = new MatTableDataSource<any>();
@@ -50,6 +51,15 @@ export class OrdersassignedComponent implements OnInit {
           alert('Order is complete! Find this order in past orders');
           this.ordersArr.splice(this.ordersArr.indexOf(order), 1);
           this.dataSource.data = this.ordersArr;
+          const mailObjTOdboy = {
+            message: ' Your order is Completed Thank You Order ID : ',
+            receiver: localStorage.getItem('c_email')
+          };
+          this._orderdata.sendCompleteMailClient(mailObjTOdboy).subscribe(
+            (data:any[])=>{
+              console.log(data);
+            }
+          )
         }
       );
     }

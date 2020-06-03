@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DeliveryboypageserviceService } from './deliveryboypageservice.service';
 import { formatDate } from '@angular/common';
+import { OrdersserviceService } from '../orders/ordersservice.service';
 
 @Component({
   selector: 'app-deliveryboypage',
@@ -9,11 +10,13 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./deliveryboypage.component.css']
 })
 export class DeliveryboypageComponent implements OnInit {
+  orders: any[];
+
 
   constructor(private _actroute: ActivatedRoute,
-    private _dbdata: DeliveryboypageserviceService) { }
+    private _dbdata: DeliveryboypageserviceService,
+    private _orderdata1:OrdersserviceService) { }
 
-  orders: any[] = [];
   noOrders:boolean;
 
   ngOnInit(): void {
@@ -41,6 +44,15 @@ export class DeliveryboypageComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.orders.splice(this.orders.indexOf(item), 1);
+          const mailObjTOdboy = {
+            message: ' Your order is Completed Thank You Order ID : ',
+            receiver: localStorage.getItem('c_email')
+          };
+          this._orderdata1.sendCompleteMailClient(mailObjTOdboy).subscribe(
+            (data:any[])=>{
+              console.log(data);
+            }
+          )
         }
       );
     }
