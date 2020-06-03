@@ -19,9 +19,14 @@
           <kendo-chart>
             <kendo-chart-series>
               <kendo-chart-series-item type="donut" [data]="chartBySubCategory" categoryField="kind" field="share">
-                 <kendo-chart-series-item-labels color="#fff" background="none">
+
+                <kendo-chart-series-item-labels [content]="labelCount" color="#fff" background="none">
                 </kendo-chart-series-item-labels>
-               </kendo-chart-series-item>
+
+                <kendo-chart-series-item-labels position="outsideEnd" color="#000" [content]="labelContent">
+                </kendo-chart-series-item-labels>
+
+              </kendo-chart-series-item>
             </kendo-chart-series>
             <kendo-chart-legend [visible]="false"></kendo-chart-legend>
           </kendo-chart>
