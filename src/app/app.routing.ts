@@ -29,6 +29,7 @@ import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { PurchasedserviceComponent } from './purchasedservice/purchasedservice.component';
 import { DeliveryboypageComponent } from './deliveryboypage/deliveryboypage.component';
 import { DeliveryboyauthguardService } from './deliveryboyauthguard.service';
+import { HomepageOfferComponent } from './homepage-offer/homepage-offer.component';
 
 
 const arr: Routes = [
@@ -52,6 +53,7 @@ const arr: Routes = [
       { path: 'service', component: ServiceComponent },
       { path: 'servicedisplay', component: ServicedisplayComponent },
       { path: 'serviceupdate/:s_id', component: ServiceupdateComponent },
+      {path:'homepage',component:HomepageOfferComponent},
       { path: 'serviceimages', component: ServiceimagesComponent },
       { path: 'deliveryboy', component: DeliveryboyComponent },
       { path: 'orderdetails/:order_id', component: OrderdetailsComponent },
