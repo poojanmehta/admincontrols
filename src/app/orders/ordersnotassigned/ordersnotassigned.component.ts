@@ -20,7 +20,7 @@ export class OrdersnotassignedComponent implements OnInit {
   constructor(private orderdata: OrdersserviceService,
     public _dialog: MatDialog,
     private _orderdata: OrdersserviceService,
-    private _router:Router) { }
+    private _router: Router) { }
 
   diaplayedColumns: string[] = ['order_id', 'order_date', 'pay_type', 'c_name', 'pro_disc', 'Action']
   dataSource = new MatTableDataSource<any>();
@@ -40,8 +40,8 @@ export class OrdersnotassignedComponent implements OnInit {
       }
     );
   }
-  onDetails(item){
-    this._router.navigate(['nav/orderdetails',item.order_id]);
+  onDetails(item) {
+    this._router.navigate(['nav/orderdetails', item.order_id]);
   }
 
   assign(order) {
@@ -69,23 +69,23 @@ export class OrdersnotassignedComponent implements OnInit {
               receiver: localStorage.getItem('c_email')
             };
             this._orderdata.sendShipmentMailDboy(mailObjTOdboy).subscribe(
-              (data:any[])=>{
+              (data: any[]) => {
                 console.log(data);
               }
-            )
+            );
 
             this._orderdata.sendShipmentMailClient(mailObj).subscribe(
-              (data:any[])=>{
+              (data: any[]) => {
                 console.log(data);
               }
-            )
+            );
 
             this.ordersArr.splice(this.ordersArr.indexOf(order), 1);
             this.dataSource.data = this.ordersArr;
           }
         );
       }
-      else{
+      else {
         alert('Please select deliveryboy from dialog box');
       }
     });
