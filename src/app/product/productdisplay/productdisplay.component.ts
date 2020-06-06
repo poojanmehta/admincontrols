@@ -62,8 +62,7 @@ export class ProductdisplayComponent implements OnInit {
     if (this.checkarr.find(x => x == row.p_id)) {
       this.checkarr.splice(this.checkarr.indexOf(row.p_id), 1);
       this.priceArr.splice(this.priceArr.indexOf(row), 1);
-    }
-    else {
+    } else {
       this.checkarr.push(row.p_id);
       this.priceArr.push(row);
     }
@@ -74,9 +73,9 @@ export class ProductdisplayComponent implements OnInit {
     this.checkarr = [];
     if (this.selectedcat == -1) {
       this.dataSource.data = this.product_tbl;
-    }
-    else {
+    } else {
       this.temparr = [];
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < this.product_tbl.length; i++) {
         if (this.selectedcat == this.product_tbl[i].fk_sct_id) {
           this.temparr.push(this.product_tbl[i]);
@@ -88,10 +87,11 @@ export class ProductdisplayComponent implements OnInit {
 
 
   onDiscountBox() {
-    this.discbox = !this.discbox
+    this.discbox = !this.discbox;
     this.checkarr = [];
     if (this.discbox == true) {
       this.temparr = [];
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < this.product_tbl.length; i++) {
         if (this.product_tbl[i].p_disc != null) {
           this.temparr.push(this.product_tbl[i]);
@@ -101,8 +101,7 @@ export class ProductdisplayComponent implements OnInit {
       this.diaplayedColumns.push('disc_price');
       this.dataSource.data = this.temparr;
       this.selectedcat = -1;
-    }
-    else {
+    } else {
       this.diaplayedColumns.pop();
       this.diaplayedColumns.pop();
       this.dataSource.data = this.product_tbl;
@@ -136,7 +135,7 @@ export class ProductdisplayComponent implements OnInit {
     if (confirm('Are you sure you want to delete the product?')) {
       this._data.deleteProduct(row.p_id).subscribe(
         (data: any[]) => {
-          this.product_tbl.splice(this.product_tbl.indexOf(row.p_id), 1);
+          this.product_tbl.splice(this.product_tbl.indexOf(row), 1);
           this.dataSource.data = this.product_tbl;
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
