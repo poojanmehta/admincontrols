@@ -1,1 +1,18 @@
-<p>homepage-offer works!</p>
+<div class="container">
+  <h1> ADD OFFER</h1>
+<form [formGroup]="offerform" (ngSubmit)="onAdd()">
+  <br>
+    <input type="file" formControlName="offer_img" (change)="onChange($event)">
+    <br>
+  <mat-form-field>
+    <input matInput type="text" formControlName="offer_link" placeholder="offer Link">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="offer_discription" placeholder="offer Discription">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <button type="submit"class="mainbutton" mat-raised-button color="primary" [disabled]="offerform.invalid">Add New Offer</button>
+</form>
+</div>
