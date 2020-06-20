@@ -20,6 +20,9 @@ export class HomepageofferService {
   getAllProducts() {
     return this._http.put(this.url + 0, JSON.stringify(0));
   }
+  addOffers(obj: FormData) {
+    return this._http.post(this.url + 0, obj);
+  }
   addProductsToCarousel(obj) {
     const body = JSON.stringify(obj);
     console.log(body);
