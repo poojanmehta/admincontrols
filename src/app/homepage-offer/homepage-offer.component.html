@@ -1,6 +1,6 @@
 <div class="container">
   <h1> ADD OFFER</h1>
-<form [formGroup]="offerform" (ngSubmit)="onAdd()">
+<form [formGroup]="offerform" (ngSubmit)="onAddOffer()">
   <br>
     <input type="file" formControlName="offer_img" (change)="onChange($event)">
     <br>
@@ -16,3 +16,65 @@
   <button type="submit"class="mainbutton" mat-raised-button color="primary" [disabled]="offerform.invalid">Add New Offer</button>
 </form>
 </div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+
+    <ng-container matColumnDef="img">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element"> <img height="50" width="50"
+          src="http://localhost:3000/images/product_images/{{element.p_img}}"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_price | currency:'INR'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef> Stock </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_stock}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="discount">
+      <th mat-header-cell *matHeaderCellDef> Discount </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_disc}}% </td>
+    </ng-container>
+
+    <ng-container matColumnDef="disc_price">
+      <th mat-header-cell *matHeaderCellDef> Discounted Priice </th>
+      <td mat-cell *matCellDef="let element"> {{element.p_disc_price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="moreInfo(element)" matTooltip="Show information">
+          <mat-icon>info</mat-icon>
+        </button>
+        <button mat-icon-button (click)=onUpdate(element) matTooltip="Update product">
+          <mat-icon class="update">open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button (click)=onDelete(element) matTooltip="Delete this product">
+          <mat-icon class="delete">delete_outlined</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="diaplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: diaplayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+<button mat-raised-button class="button" (click)="addProducts()">
+  <mat-icon class="myicon">add_circle_outlined</mat-icon>Create New Product
+</button>

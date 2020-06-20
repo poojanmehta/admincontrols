@@ -1,0 +1,11 @@
+.myicon {
+  font-size: 26px;
+  margin-top: 4px;
+  margin-right: 6px;
+  float:left;
+}
+
+.mat-raised-button {
+  margin: 2% 2% 2% 2%;
+  color: darkblue;
+}
