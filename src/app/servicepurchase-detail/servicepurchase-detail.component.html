@@ -1,0 +1,31 @@
+<div class="container">
+  <p>
+  <b>Customer Name : </b>{{servicepurchase.c_name}}
+
+</p>
+<p>
+  <b>Trainer Name : </b>{{trainerdetail.t_name}}
+  <a routerLink="/nav/trainerupdate/{{servicepurchase.fk_t_id}}">
+    <mat-icon>
+        open_in_new
+    </mat-icon>
+  </a>
+</p>
+<p>
+  <b>Service Name : </b>{{servicepurchase.s_name}}
+  <a routerLink="/nav/serviceupdate/{{servicepurchase.fk_s_id}}">
+    <mat-icon>
+        open_in_new
+    </mat-icon>
+  </a>
+</p>
+<p>
+  <b>Purchase Date : </b>{{servicepurchase.sp_pur_date}}
+
+</p>
+<p>
+  <b>Expired Date : </b>{{servicepurchase.sp_exp_date}}
+
+</p>
+
+</div>

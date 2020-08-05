@@ -67,6 +67,7 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import { HomepageOfferComponent } from './homepage-offer/homepage-offer.component';
 import { ProductadddialogComponent } from './homepage-offer/productadddialog/productadddialog.component';
+import { ServicepurchaseDetailComponent } from './servicepurchase-detail/servicepurchase-detail.component';
 
 
 
@@ -111,7 +112,8 @@ import { ProductadddialogComponent } from './homepage-offer/productadddialog/pro
     AssigntrainerComponent,
     DeliveryboypageComponent,
     HomepageOfferComponent,
-    ProductadddialogComponent
+    ProductadddialogComponent,
+    ServicepurchaseDetailComponent
   ],
   imports: [
     BrowserModule,
